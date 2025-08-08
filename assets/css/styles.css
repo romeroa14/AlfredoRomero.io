@@ -1,14 +1,14 @@
 :root {
-    --bg: #0b0f14;
-    --bg-alt: #0f141b;
-    --text: #f1f5f9;
-    --muted: #98a2b3;
+    --bg: #ffffff;
+    --bg-alt: #f6f8fb;
+    --text: #0b1220;
+    --muted: #667085;
     --brand: #2b84ff;
-    --brand-2: #66a6ff;
-    --ok: #22c55e;
-    --card: #10161f;
-    --stroke: #1a2533;
-    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    --brand-2: #69a7ff;
+    --ok: #16a34a;
+    --card: #ffffff;
+    --stroke: #e5e7eb;
+    --shadow: 0 8px 24px rgba(2, 41, 89, .08);
     --header-h: 64px;
 }
 
@@ -23,7 +23,7 @@ body {
 
 body {
     margin: 0;
-    background: radial-gradient(1200px 800px at 80% 10%, rgba(102, 166, 255, .12), transparent), radial-gradient(1000px 700px at 10% 10%, rgba(43, 132, 255, .10), transparent), var(--bg);
+    background: var(--bg);
     color: var(--text);
     font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
     line-height: 1.6
@@ -35,7 +35,7 @@ img {
 }
 
 a {
-    color: #9cc9ff;
+    color: var(--brand);
     text-decoration: none
 }
 
@@ -52,9 +52,9 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(11, 18, 32, .7);
+    background: rgba(255,255,255,.8);
     backdrop-filter: saturate(150%) blur(10px);
-    border-bottom: 1px solid var(--stroke)
+    border-bottom: 1px solid #eef2f7
 }
 
 .header__inner {
@@ -79,11 +79,11 @@ a:hover {
 }
 
 .nav a {
-    color: var(--muted)
+    color: var(--text)
 }
 
 .nav a:hover {
-    color: var(--text)
+    color: var(--brand)
 }
 
 .button {
@@ -100,7 +100,8 @@ a:hover {
 
 .button--primary {
     background: linear-gradient(90deg, var(--brand), var(--brand-2));
-    border: none
+    border: none;
+    color: #fff
 }
 
 .button--ghost {
@@ -111,9 +112,9 @@ a:hover {
     padding: 64px 0 24px;
     min-height: calc(100vh - var(--header-h));
     display: flex;
-    align-items: center
+    align-items: center;
+    position: relative
 }
-
 .hero__grid {
     display: grid;
     grid-template-columns: 1.1fr .9fr;
@@ -122,8 +123,8 @@ a:hover {
 }
 
 .eyebrow {
-    color: #86b7ff;
-    font-weight: 600;
+    color: var(--brand);
+    font-weight: 700;
     letter-spacing: .08em;
     text-transform: uppercase
 }
@@ -133,7 +134,7 @@ a:hover {
     line-height: 1.2;
     margin: 10px 0 10px;
     font-weight: 800;
-    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    background: linear-gradient(90deg, var(--text), var(--brand));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -170,8 +171,6 @@ a:hover {
     font-size: 14px
 }
 
-.hero__media { justify-self: center; filter: drop-shadow(0 12px 40px rgba(66, 156, 255, .25)) }
-
 /* Hero gallery */
 .hero__gallery {
     position: relative;
@@ -187,28 +186,27 @@ a:hover {
     border-radius: 18px;
     overflow: hidden;
     border: 1px solid var(--stroke);
-    background: #0b1327;
-    box-shadow: 0 12px 40px rgba(66, 156, 255, .18);
+    background: var(--card);
+    box-shadow: var(--shadow);
     transition: transform .35s ease, box-shadow .35s ease;
-    width: clamp(100px, 14vw, 420px);
+    width: clamp(240px,28vw,500px);
 }
 
 .photo-card img {
     display: block;
     width: 100%;
     height: auto;
-    object-fit: cover;
-    filter: saturate(1.02) contrast(1.02)
+    object-fit: cover
 }
 
 .photo-card::after {
     content: "";
     position: absolute;
     inset: auto 10% -14px 10%;
-    height: 30px;
+    height: 26px;
     border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(80, 160, 255, .45), transparent);
-    filter: blur(18px);
+    background: radial-gradient(closest-side, rgba(43,132,255,.25), transparent);
+    filter: blur(14px);
     z-index: -1
 }
 
@@ -221,26 +219,27 @@ a:hover {
 }
 
 .photo-card:is(:hover, :focus-within) {
-    transform: translateY(0) scale(1.01);
-    box-shadow: 0 16px 60px rgba(138, 92, 255, .35)
+    transform: translateY(-4px);
+    box-shadow: 0 14px 36px rgba(2,41,89,.12)
 }
 
 .photo-card--right:is(:hover, :focus-within) {
-    transform: translateY(0) scale(1.01)
+    transform: translateY(-4px)
 }
 
 .section {
     padding: 64px 0;
-    border-top: 1px solid var(--stroke)
+    border-top: 1px solid #f1f5f9
 }
 
 .section--alt {
-    background: linear-gradient(180deg, var(--bg), var(--bg-alt))
+    background: var(--bg-alt)
 }
 
 .section h2 {
     font-size: clamp(24px, 3vw, 36px);
-    margin: 0 0 10px
+    margin: 0 0 10px;
+    color: var(--text)
 }
 
 .section__lead {
@@ -255,12 +254,12 @@ a:hover {
 }
 
 .card {
-    background: linear-gradient(180deg, var(--card), #0b1327);
+    background: var(--card);
     border: 1px solid var(--stroke);
     border-radius: 16px;
     padding: 20px;
     box-shadow: var(--shadow);
-    transition: box-shadow .25s ease, border-color .25s ease, background .25s ease, transform .25s ease;
+    transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
     will-change: box-shadow, transform;
     transform: translateY(0)
 }
@@ -291,7 +290,8 @@ a:hover {
     padding: 6px 10px;
     border-radius: 999px;
     color: var(--muted);
-    margin-right: 8px
+    margin-right: 8px;
+    background: #fff
 }
 
 .about {
@@ -360,9 +360,9 @@ a:hover {
 }
 
 .footer {
-    border-top: 1px solid var(--stroke);
+    border-top: 1px solid #eef2f7;
     padding: 24px 0;
-    background: var(--bg)
+    background: var(--bg-alt)
 }
 
 .footer__inner {
@@ -377,8 +377,8 @@ a:hover {
 }
 
 .card:hover {
-    border-color: #294e7a;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, .45);
+    border-color: #cfe5ff;
+    box-shadow: 0 20px 40px rgba(2,41,89,.12);
     transform: translateY(-6px)
 }
 
@@ -397,7 +397,7 @@ a:hover {
 }
 
 .work-card {
-    background: linear-gradient(180deg, var(--card), #0b1327);
+    background: var(--card);
     border: 1px solid var(--stroke);
     border-radius: 16px;
     overflow: hidden;
@@ -426,12 +426,12 @@ a:hover {
     list-style: none;
     padding: 0;
     margin: 0;
-    color: #9fe89f
+    color: #146534
 }
 
 .work-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, .45)
+    box-shadow: 0 20px 40px rgba(2,41,89,.12)
 }
 
 /* Testimonials */
@@ -442,10 +442,11 @@ a:hover {
 }
 
 .testimonial {
-    background: linear-gradient(180deg, var(--card), #0b1327);
+    background: var(--card);
     border: 1px solid var(--stroke);
     border-radius: 16px;
-    padding: 16px
+    padding: 16px;
+    box-shadow: var(--shadow)
 }
 
 .testimonial blockquote {
@@ -463,15 +464,15 @@ a:hover {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-    counter-reset: step
+    gap: 18px
 }
 
 .steps li {
-    background: linear-gradient(180deg, var(--card), #0b1327);
+    background: var(--card);
     border: 1px solid var(--stroke);
     border-radius: 16px;
-    padding: 14px
+    padding: 14px;
+    box-shadow: var(--shadow)
 }
 
 .steps h3 {
@@ -486,7 +487,7 @@ a:hover {
 }
 
 .price-card {
-    background: linear-gradient(180deg, var(--card), #0b1327);
+    background: var(--card);
     border: 1px solid var(--stroke);
     border-radius: 16px;
     padding: 16px;
@@ -495,11 +496,11 @@ a:hover {
 
 .price-card--featured {
     border-color: var(--brand);
-    box-shadow: 0 12px 36px rgba(66, 156, 255, .25)
+    box-shadow: 0 12px 36px rgba(2,41,89,.10)
 }
 
 .price {
-    color: #cde0ff;
+    color: #0b1220;
     margin: 6px 0 10px
 }
 
@@ -511,16 +512,18 @@ a:hover {
 
 /* FAQ */
 .faq details {
-    background: linear-gradient(180deg, var(--card), #0b1327);
+    background: var(--card);
     border: 1px solid var(--stroke);
     border-radius: 12px;
     padding: 12px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    box-shadow: var(--shadow)
 }
 
 .faq summary {
     cursor: pointer;
-    font-weight: 600
+    font-weight: 600;
+    color: var(--text)
 }
 
 /* FAB WhatsApp */
@@ -537,7 +540,7 @@ a:hover {
     background: linear-gradient(90deg, #25D366, #36f08d);
     color: #001b0a;
     font-weight: 800;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
     z-index: 20
 }
 
