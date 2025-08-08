@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alfredoromero.io/sitemap.xml

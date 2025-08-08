@@ -1,0 +1,19 @@
+# SO
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependencias/Build
+node_modules/
+dist/
+build/
+.cache/
+
+# Entornos
+.env*
+
+# IDE
+.vscode/
+.idea/
