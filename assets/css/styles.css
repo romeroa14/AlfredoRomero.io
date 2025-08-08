@@ -1,13 +1,13 @@
 :root {
-    --bg: #0b1220;
-    --bg-alt: #0e1628;
-    --text: #ecf2ff;
-    --muted: #a9b3c7;
-    --brand: #6a5cff;
-    --brand-2: #8a5cff;
+    --bg: #0b0f14;
+    --bg-alt: #0f141b;
+    --text: #f1f5f9;
+    --muted: #98a2b3;
+    --brand: #2b84ff;
+    --brand-2: #66a6ff;
     --ok: #22c55e;
-    --card: #111a2f;
-    --stroke: #1b2440;
+    --card: #10161f;
+    --stroke: #1a2533;
     --shadow: 0 10px 30px rgba(0, 0, 0, .35);
     --header-h: 64px;
 }
@@ -23,7 +23,7 @@ body {
 
 body {
     margin: 0;
-    background: radial-gradient(1200px 800px at 80% 10%, rgba(138, 92, 255, .12), transparent), radial-gradient(1000px 700px at 10% 10%, rgba(106, 92, 255, .15), transparent), var(--bg);
+    background: radial-gradient(1200px 800px at 80% 10%, rgba(102, 166, 255, .12), transparent), radial-gradient(1000px 700px at 10% 10%, rgba(43, 132, 255, .10), transparent), var(--bg);
     color: var(--text);
     font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
     line-height: 1.6
@@ -170,10 +170,7 @@ a:hover {
     font-size: 14px
 }
 
-.hero__media {
-    justify-self: center;
-    filter: drop-shadow(0 12px 40px rgba(106, 92, 255, .25))
-}
+.hero__media { justify-self: center; filter: drop-shadow(0 12px 40px rgba(66, 156, 255, .25)) }
 
 /* Hero gallery */
 .hero__gallery {
@@ -191,9 +188,9 @@ a:hover {
     overflow: hidden;
     border: 1px solid var(--stroke);
     background: #0b1327;
-    box-shadow: 0 12px 40px rgba(106, 92, 255, .18);
+    box-shadow: 0 12px 40px rgba(66, 156, 255, .18);
     transition: transform .35s ease, box-shadow .35s ease;
-    width: clamp(260px, 32vw, 420px);
+    width: clamp(100px, 14vw, 420px);
 }
 
 .photo-card img {
@@ -210,7 +207,7 @@ a:hover {
     inset: auto 10% -14px 10%;
     height: 30px;
     border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(138, 92, 255, .45), transparent);
+    background: radial-gradient(closest-side, rgba(80, 160, 255, .45), transparent);
     filter: blur(18px);
     z-index: -1
 }
@@ -380,7 +377,7 @@ a:hover {
 }
 
 .card:hover {
-    border-color: #2a3560;
+    border-color: #294e7a;
     box-shadow: 0 16px 48px rgba(0, 0, 0, .45);
     transform: translateY(-6px)
 }
@@ -497,8 +494,8 @@ a:hover {
 }
 
 .price-card--featured {
-    border-color: #6a5cff;
-    box-shadow: 0 12px 36px rgba(106, 92, 255, .25)
+    border-color: var(--brand);
+    box-shadow: 0 12px 36px rgba(66, 156, 255, .25)
 }
 
 .price {
