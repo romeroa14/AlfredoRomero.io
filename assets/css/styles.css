@@ -8,7 +8,8 @@
     --ok: #22c55e;
     --card: #111a2f;
     --stroke: #1b2440;
-    --shadow: 0 10px 30px rgba(0, 0, 0, .35)
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    --header-h: 64px;
 }
 
 * {
@@ -106,9 +107,7 @@ a:hover {
     background: transparent
 }
 
-.hero {
-    padding: 64px 0 24px
-}
+.hero { padding: 64px 0 24px; min-height: calc(100vh - var(--header-h)); display: flex; align-items: center }
 
 .hero__grid {
     display: grid;
