@@ -131,7 +131,13 @@ a:hover {
 .hero h1 {
     font-size: clamp(28px, 3.6vw, 44px);
     line-height: 1.2;
-    margin: 10px 0 10px
+    margin: 10px 0 10px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .hero__lead {
@@ -174,7 +180,7 @@ a:hover {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 28px;
     align-items: center;
     justify-items: center
 }
@@ -186,7 +192,8 @@ a:hover {
     border: 1px solid var(--stroke);
     background: #0b1327;
     box-shadow: 0 12px 40px rgba(106, 92, 255, .18);
-    transition: transform .35s ease, box-shadow .35s ease
+    transition: transform .35s ease, box-shadow .35s ease;
+    width: clamp(260px, 32vw, 420px);
 }
 
 .photo-card img {
@@ -209,11 +216,11 @@ a:hover {
 }
 
 .photo-card--left {
-    transform: translateY(8px)
+    transform: none
 }
 
 .photo-card--right {
-    transform: rotate(-3deg) translateY(18px)
+    transform: none
 }
 
 .photo-card:is(:hover, :focus-within) {
@@ -222,7 +229,7 @@ a:hover {
 }
 
 .photo-card--right:is(:hover, :focus-within) {
-    transform: rotate(0) translateY(0) scale(1.01)
+    transform: translateY(0) scale(1.01)
 }
 
 .section {
