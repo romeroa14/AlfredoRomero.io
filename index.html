@@ -123,7 +123,7 @@
     </header>
 
     <main id="inicio">
-      <section class="hero" aria-labelledby="h1-hero">
+      <section class="hero hero--text-only" aria-labelledby="h1-hero">
         <div class="container hero__grid">
           <div class="hero__content">
             <p class="eyebrow">Desarrollo Web + Inteligencia Artificial</p>
@@ -142,13 +142,57 @@
               <li><span class="stats__num">SEO</span><span class="stats__label">Optimizado</span></li>
             </ul>
           </div>
-          <div class="hero__gallery" aria-label="Galería de fotos de Alfredo">
-            <figure class="photo-card photo-card--left">
-              <img src="/assets/img/alfredo-oficina.jpeg" alt="Alfredo Romero en oficina" loading="eager" width="520" height="640" />
-            </figure>
-            <figure class="photo-card photo-card--right">
-              <img src="/assets/img/alfredo-hero.jpeg" alt="Alfredo Romero trabajando al aire libre en Caracas" loading="lazy" width="520" height="640" />
-            </figure>
+          
+        </div>
+      </section>
+
+      <section id="portafolio" class="section">
+        <div class="container">
+          <h2>Proyectos Destacados</h2>
+          <p class="section__lead">Casos reales con impacto en negocio. Reemplaza estos ejemplos con tus proyectos.</p>
+          <div class="work-cards">
+            <article class="work-card">
+              <a class="work-card__media" href="#" aria-label="Proyecto 1">
+                <img src="/assets/img/proyecto-1.jpg" alt="Proyecto Web - Comercio local" loading="lazy" width="720" height="420" />
+              </a>
+              <div class="work-card__body">
+                <h3>Comercio Local — Landing SEO</h3>
+                <p class="work-card__meta">Laravel · SEO · Core Web Vitals</p>
+                <ul class="work-card__kpi">
+                  <li>+42% leads</li>
+                  <li>98/100 CWV</li>
+                  <li>4 semanas</li>
+                </ul>
+              </div>
+            </article>
+            <article class="work-card">
+              <a class="work-card__media" href="#" aria-label="Proyecto 2">
+                <img src="/assets/img/proyecto-2.jpg" alt="Ecommerce con pagos" loading="lazy" width="720" height="420" />
+              </a>
+              <div class="work-card__body">
+                <h3>Ecommerce — Pasarela de Pago</h3>
+                <p class="work-card__meta">Laravel · Filament · PostgreSQL</p>
+                <ul class="work-card__kpi">
+                  <li>+3x ventas</li>
+                  <li>Admin panel</li>
+                  <li>6 semanas</li>
+                </ul>
+              </div>
+            </article>
+            <article class="work-card">
+              <a class="work-card__media" href="#" aria-label="Proyecto 3">
+                <img src="/assets/img/proyecto-3.jpg" alt="Asistente con IA" loading="lazy" width="720" height="420" />
+              </a>
+              <div class="work-card__body">
+                <h3>Soporte — Asistente con IA</h3>
+                <p class="work-card__meta">Chatbot · RAG · Integraciones</p>
+                <ul class="work-card__kpi">
+                  <li>-35% tickets</li>
+                  <li>24/7</li>
+                  <li>3 semanas</li>
+                </ul>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -204,58 +248,7 @@
                 <li>Schema y datos estructurados</li>
                 <li>Monitoreo y reportes</li>
               </ul>
-              <a class="button button--primary card__cta" href="#contacto">Solicitar Información →</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="portafolio" class="section">
-        <div class="container">
-          <h2>Proyectos Destacados</h2>
-          <p class="section__lead">Casos reales con impacto en negocio. Reemplaza estos ejemplos con tus proyectos.</p>
-          <div class="work-cards">
-            <article class="work-card">
-              <a class="work-card__media" href="#" aria-label="Proyecto 1">
-                <img src="/assets/img/proyecto-1.jpg" alt="Proyecto Web - Comercio local" loading="lazy" width="720" height="420" />
-              </a>
-              <div class="work-card__body">
-                <h3>Comercio Local — Landing SEO</h3>
-                <p class="work-card__meta">Laravel · SEO · Core Web Vitals</p>
-                <ul class="work-card__kpi">
-                  <li>+42% leads</li>
-                  <li>98/100 CWV</li>
-                  <li>4 semanas</li>
-                </ul>
-              </div>
-            </article>
-            <article class="work-card">
-              <a class="work-card__media" href="#" aria-label="Proyecto 2">
-                <img src="/assets/img/proyecto-2.jpg" alt="Ecommerce con pagos" loading="lazy" width="720" height="420" />
-              </a>
-              <div class="work-card__body">
-                <h3>Ecommerce — Pasarela de Pago</h3>
-                <p class="work-card__meta">Laravel · Filament · PostgreSQL</p>
-                <ul class="work-card__kpi">
-                  <li>+3x ventas</li>
-                  <li>Admin panel</li>
-                  <li>6 semanas</li>
-                </ul>
-              </div>
-            </article>
-            <article class="work-card">
-              <a class="work-card__media" href="#" aria-label="Proyecto 3">
-                <img src="/assets/img/proyecto-3.jpg" alt="Asistente con IA" loading="lazy" width="720" height="420" />
-              </a>
-              <div class="work-card__body">
-                <h3>Soporte — Asistente con IA</h3>
-                <p class="work-card__meta">Chatbot · RAG · Integraciones</p>
-                <ul class="work-card__kpi">
-                  <li>-35% tickets</li>
-                  <li>24/7</li>
-                  <li>3 semanas</li>
-                </ul>
-              </div>
+              <a class="button" href="#contacto">Solicitar Información →</a>
             </article>
           </div>
         </div>
