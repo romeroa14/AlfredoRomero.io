@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es-VE">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Informativa Dinámica | Alfredo Romero</title>
+  <meta name="description"
+    content="Sitio web dinámico con hasta 5 páginas, blog integrado y panel de administración. Ideal para escalar contenido." />
+  <link rel="canonical" href="https://alfredoromero.io/servicios/informativa-dinamica.html" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner"><a href="/" class="logo"><img src="/favicon.svg" alt="AR" width="28"
+          height="28" /><span>Alfredo Romero</span></a>
+      <nav class="nav"><a href="/">Inicio</a><a href="/#portafolio">Proyectos</a><a href="/#servicios">Servicios</a>
+      </nav>
+    </div>
+  </header>
+  <main class="hero hero--text-only" style="padding-top:48px">
+    <div class="container">
+      <div class="hero__content" style="max-width:900px;margin:0 auto;text-align:center">
+        <p class="eyebrow">Desarrollo Web</p>
+        <h1>Informativa Dinámica</h1>
+        <p class="hero__lead">Evoluciona tu sitio con más páginas, blog integrado y panel de administración para crecer
+          sin límites.</p>
+        <div class="hero__cta"><a class="button button--primary" href="#contacto">Quiero Cotizar</a></div>
+      </div>
+    </div>
+  </main>
+  <section class="section">
+    <div class="container">
+      <h2>¿Qué Incluye?</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Estructura</h3>
+          <ul class="list list--check">
+            <li>Hasta 5 páginas</li>
+            <li>Blog integrado</li>
+            <li>Menú y pie personalizados</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Gestión</h3>
+          <ul class="list list--check">
+            <li>Panel WordPress</li>
+            <li>Roles y permisos</li>
+            <li>Editor visual</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Rendimiento</h3>
+          <ul class="list list--check">
+            <li>SEO On‑Page básico</li>
+            <li>Optimización de imágenes</li>
+            <li>Seguridad y copias</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="contacto" class="section">
+    <div class="container contact">
+      <div class="contact__info">
+        <h2>Solicitar Cotización</h2>
+        <p>Tiempo típico: 2–3 semanas.</p>
+      </div>
+      <form class="form" action="mailto:info@alfredoromero.io" method="post" enctype="text/plain">
+        <div class="form__row"><label for="nombre">Nombre</label><input id="nombre" name="nombre" required /></div>
+        <div class="form__row"><label for="email">Email</label><input id="email" type="email" name="email" required />
+        </div>
+        <div class="form__row"><label for="presupuesto">Presupuesto</label><select id="presupuesto" name="presupuesto">
+            <option value="">Selecciona</option>
+            <option>$400–$800</option>
+            <option>$800–$1.500</option>
+          </select></div>
+        <div class="form__row"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje"
+            rows="5"></textarea></div><input type="hidden" name="servicio" value="Informativa Dinámica" /><button
+          class="button button--primary form__submit" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Alfredo Romero</p>
+      <nav class="footer__nav"><a href="/">Inicio</a><a href="/#servicios">Servicios</a></nav>
+    </div>
+  </footer>
+  <script src="/assets/js/main.js" defer></script>
+</body>
+
+</html>

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://alfredoromero.io/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://alfredoromero.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://alfredoromero.io/servicios/one-page.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/informativa-dinamica.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/plan-emprendedor.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/plan-corporativo.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/tienda-profesional.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/tienda-medida.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/sistemas-basico.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/sistemas-premium.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/rifas-profesional.html</loc></url>
+  <url><loc>https://alfredoromero.io/servicios/ia-automatizacion.html</loc></url>
 </urlset>
