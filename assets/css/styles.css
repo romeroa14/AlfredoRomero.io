@@ -112,28 +112,139 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 18px;
+    padding: 14px 24px;
     border-radius: 12px;
-    border: 1px solid var(--stroke);
+    border: 2px solid transparent;
     background: transparent;
     color: var(--text);
-    font-weight: 600
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-height: 48px;
+}
+
+.button:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .button--primary {
-    background: linear-gradient(90deg, var(--brand), var(--brand-2));
-    border: none;
-    color: #fff
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    border: 2px solid var(--brand);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(43, 132, 255, 0.3);
+}
+
+.button--primary:hover {
+    background: linear-gradient(135deg, var(--brand-2), var(--brand));
+    border-color: var(--brand-2);
+    box-shadow: 0 8px 32px rgba(43, 132, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.button--primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(43, 132, 255, 0.5);
 }
 
 .button--ghost {
     background: transparent;
-    border-color: var(--brand);
-    color: var(--brand)
+    border: 2px solid var(--brand);
+    color: var(--brand);
+    box-shadow: 0 2px 8px rgba(43, 132, 255, 0.1);
 }
 
 .button--ghost:hover {
-    background: rgba(43, 132, 255, .08)
+    background: var(--brand);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(43, 132, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+.button--ghost:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(43, 132, 255, 0.3);
+}
+
+/* Button variants */
+.button--large {
+    padding: 18px 32px;
+    font-size: 18px;
+    min-height: 56px;
+}
+
+.button--small {
+    padding: 10px 16px;
+    font-size: 14px;
+    min-height: 40px;
+}
+
+/* Button with icon */
+.button--with-icon {
+    gap: 8px;
+}
+
+.button--with-icon::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Special CTA button */
+.button--cta {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: 2px solid #ff6b35;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 16px 32px;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.button--cta:hover {
+    background: linear-gradient(135deg, #f7931e, #ff6b35);
+    border-color: #f7931e;
+    box-shadow: 0 10px 32px rgba(255, 107, 53, 0.4);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.button--cta:active {
+    transform: translateY(-1px) scale(1.01);
+}
+
+/* Disabled state */
+.button:disabled,
+.button--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Focus states for accessibility */
+.button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(43, 132, 255, 0.3);
+}
+
+.button--primary:focus {
+    box-shadow: 0 0 0 3px rgba(43, 132, 255, 0.3), 0 4px 16px rgba(43, 132, 255, 0.3);
 }
 
 .hero {
@@ -1142,5 +1253,51 @@ body {
     
     .process-step__content::before {
         display: none;
+    }
+}
+
+/* Responsive button adjustments */
+@media (max-width: 768px) {
+    .button {
+        padding: 12px 20px;
+        font-size: 15px;
+        min-height: 44px;
+    }
+    
+    .button--large {
+        padding: 16px 28px;
+        font-size: 17px;
+        min-height: 52px;
+    }
+    
+    .button--cta {
+        padding: 14px 24px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .button {
+        padding: 10px 16px;
+        font-size: 14px;
+        min-height: 40px;
+        border-radius: 10px;
+    }
+    
+    .button--cta {
+        padding: 12px 20px;
+        font-size: 15px;
+        min-height: 44px;
+    }
+    
+    .hero__cta {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .hero__cta .button {
+        width: 100%;
+        justify-content: center;
     }
 }
