@@ -105,7 +105,18 @@
 
   // Counter animation function
   function animateCounter(element) {
-    const target = parseInt(element.getAttribute('data-target') || element.textContent);
+    const targetElement = element.querySelector('[data-target]');
+    if (!targetElement) return;
+    
+    const target = parseInt(targetElement.getAttribute('data-target'));
+    const originalText = targetElement.textContent;
+    const prefixElement = element.querySelector('.stats__prefix');
+    
+    // If it's not a number or doesn't have data-target, don't animate
+    if (isNaN(target) || !target) {
+      return;
+    }
+    
     const duration = 2000;
     const step = target / (duration / 16);
     let current = 0;
@@ -116,7 +127,27 @@
         current = target;
         clearInterval(timer);
       }
-      element.textContent = Math.floor(current);
+      
+      // Preserve the original format
+      if (originalText.includes('$')) {
+        targetElement.textContent = '$' + Math.floor(current);
+      } else if (originalText.includes('%')) {
+        targetElement.textContent = Math.floor(current) + '%';
+      } else if (originalText.includes('-')) {
+        // Handle ranges like "4-6"
+        const parts = originalText.split('-');
+        if (parts.length === 2) {
+          const start = parseInt(parts[0]);
+          const end = parseInt(parts[1]);
+          if (!isNaN(start) && !isNaN(end)) {
+            const animatedStart = Math.min(Math.floor(current), start);
+            const animatedEnd = Math.min(Math.floor(current), end);
+            targetElement.textContent = `${animatedStart}-${animatedEnd}`;
+          }
+        }
+      } else {
+        targetElement.textContent = Math.floor(current);
+      }
     }, 16);
   }
 
