@@ -1192,6 +1192,235 @@ body {
     }
 }
 
+/* Scroll Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation classes */
+.animate-on-scroll {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+}
+
+.fade-in-up {
+    transform: translateY(30px);
+}
+
+.fade-in-up.animated {
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    transform: translateX(-30px);
+}
+
+.fade-in-left.animated {
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    transform: translateX(30px);
+}
+
+.fade-in-right.animated {
+    transform: translateX(0);
+}
+
+.fade-in-scale {
+    transform: scale(0.9);
+}
+
+.fade-in-scale.animated {
+    transform: scale(1);
+}
+
+.slide-in-up {
+    transform: translateY(50px);
+}
+
+.slide-in-up.animated {
+    transform: translateY(0);
+}
+
+.slide-in-down {
+    transform: translateY(-50px);
+}
+
+.slide-in-down.animated {
+    transform: translateY(0);
+}
+
+/* Stagger animations for lists */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stagger-item.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-item:nth-child(1) { transition-delay: 0.1s; }
+.stagger-item:nth-child(2) { transition-delay: 0.2s; }
+.stagger-item:nth-child(3) { transition-delay: 0.3s; }
+.stagger-item:nth-child(4) { transition-delay: 0.4s; }
+.stagger-item:nth-child(5) { transition-delay: 0.5s; }
+.stagger-item:nth-child(6) { transition-delay: 0.6s; }
+
+/* Parallax effect for background elements */
+.parallax-bg {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Smooth reveal for sections */
+.section-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card animations */
+.card-animate {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-animate.animated {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Text reveal animation */
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-reveal.revealed span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Counter animation */
+.counter-animate {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.counter-animate.animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Progress bar animation */
+.progress-bar {
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar.animated {
+    width: 100%;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll,
+    .stagger-item,
+    .section-reveal,
+    .card-animate,
+    .text-reveal span,
+    .counter-animate,
+    .progress-bar {
+        transition: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .process-timeline::before {

@@ -143,64 +143,62 @@
             </div>
 
             <ul class="stats" aria-label="Indicadores de confianza">
-              <li><span class="stats__num">$190</span><span class="stats__label">One Page</span></li>
-              <li><span class="stats__num">$450</span><span class="stats__label">Ecommerce</span></li>
-              <li><span class="stats__num">4-6</span><span class="stats__label">Semanas</span></li>
-              <li><span class="stats__num">SEO</span><span class="stats__label">Incluido</span></li>
+              <li class="counter-animate"><span class="stats__num" data-target="190">$190</span><span class="stats__label">One Page</span></li>
+              <li class="counter-animate"><span class="stats__num" data-target="450">$450</span><span class="stats__label">Ecommerce</span></li>
+              <li class="counter-animate"><span class="stats__num" data-target="6">4-6</span><span class="stats__label">Semanas</span></li>
+              <li class="counter-animate"><span class="stats__num">SEO</span><span class="stats__label">Incluido</span></li>
             </ul>
           </div>
         
         </div>
         <div class="bg-decor" aria-hidden="true">
-          <span class="glyph" style="left:6%;top:18%;--dur:7s">{</span>
-          <span class="glyph glyph--muted" style="left:16%;top:62%;--dur:9s">;</span>
-          <span class="glyph" style="left:28%;top:34%;--dur:8s">}</span>
-          <span class="glyph glyph--muted" style="left:42%;top:78%;--dur:10s">[ ]</span>
-          <span class="glyph" style="left:56%;top:40%;--dur:7.5s">()</span>
-          <span class="glyph glyph--muted" style="left:70%;top:70%;--dur:9.5s">;</span>
-          <span class="glyph" style="left:84%;top:28%;--dur:8.5s">&lt;/&gt;</span>
-  
-            
+          <span class="glyph parallax-bg" data-speed="0.3" style="left:6%;top:18%;--dur:7s">{</span>
+          <span class="glyph glyph--muted parallax-bg" data-speed="0.5" style="left:16%;top:62%;--dur:9s">;</span>
+          <span class="glyph parallax-bg" data-speed="0.2" style="left:28%;top:34%;--dur:8s">}</span>
+          <span class="glyph glyph--muted parallax-bg" data-speed="0.4" style="left:42%;top:78%;--dur:10s">[ ]</span>
+          <span class="glyph parallax-bg" data-speed="0.3" style="left:56%;top:40%;--dur:7.5s">()</span>
+          <span class="glyph glyph--muted parallax-bg" data-speed="0.6" style="left:70%;top:70%;--dur:9.5s">;</span>
+          <span class="glyph parallax-bg" data-speed="0.2" style="left:84%;top:28%;--dur:8.5s">&lt;/&gt;</span>
         </div>
       </section>
 
-      <section id="sobre-mi" class="section section--alt">
+      <section id="sobre-mi" class="section section--alt section-reveal">
         <div class="container about">
-          <div class="about__content">
-            <h2>Sobre mí</h2>
-            <p>
+          <div class="about__content fade-in-left">
+            <h2 class="text-reveal"><span>Sobre mí</span></h2>
+            <p class="animate-on-scroll">
               Soy <strong>ingeniero en sistemas</strong> y <strong>desarrollador backend</strong> en Caracas, especializado en <strong>Laravel</strong> y <strong>FilamentPHP</strong> con bases de datos <strong>PostgreSQL</strong>, <strong>MariaDB</strong> y <strong>MySQL</strong>. Diseño y construyo <strong>páginas web</strong> y <strong>sistemas administrativos</strong> robustos, optimizados para <strong>rendimiento</strong> y <strong>SEO técnico</strong>.
             </p>
-            <p>
+            <p class="animate-on-scroll">
               Tengo experiencia creando <strong>APIs REST</strong> seguras, paneles a medida y <strong>ecommerce</strong> con <strong>pasarelas de pago</strong> (Mercado Pago, PayPal, etc.). En el <strong>IVIC</strong> desarrollé módulos personalizados, optimicé consultas SQL de alto volumen y apliqué buenas prácticas con <strong>Docker</strong> y <strong>Linux</strong> para despliegues escalables.
             </p>
-            <p>
+            <p class="animate-on-scroll">
               Complemento el desarrollo con <strong>automatización e IA</strong>: asistentes y chatbots, flujos automáticos y analítica de datos para impulsar conversiones. Trabajo <strong>remoto o híbrido</strong>, enfocándome en resultados medibles: sitios rápidos, accesibles y listos para posicionar en Google.
             </p>
-            <ul class="list list--check">
-              <li>Instituto Venezolano de Investigaciones Científicas (IVIC) – Desarrollador Backend</li>
-              <li>Integración de pasarelas de pago y servicios externos</li>
-              <li>Docker y Linux a nivel operativo</li>
-              <li>Power BI y análisis de datos</li>
+            <ul class="list list--check stagger-container">
+              <li class="stagger-item">Instituto Venezolano de Investigaciones Científicas (IVIC) – Desarrollador Backend</li>
+              <li class="stagger-item">Integración de pasarelas de pago y servicios externos</li>
+              <li class="stagger-item">Docker y Linux a nivel operativo</li>
+              <li class="stagger-item">Power BI y análisis de datos</li>
             </ul>
-            <div class="about__badges">
+            <div class="about__badges fade-in-scale">
               <span class="badge">Caracas, Venezuela</span>
               <span class="badge">Remoto / Híbrido</span>
               <span class="badge">Español · Inglés</span>
             </div>
           </div>
-          <figure class="about__media">
+          <figure class="about__media fade-in-right">
             <img src="/assets/img/alfredo-oficina.jpeg" alt="Alfredo en oficina trabajando en proyectos web" loading="lazy" width="720" height="720" />
           </figure>
         </div>
       </section>
 
-      <section id="portafolio" class="section">
+      <section id="portafolio" class="section section-reveal">
         <div class="container">
-          <h2>Proyectos Destacados</h2>
-          <p class="section__lead">Casos reales con impacto en negocio. Reemplaza estos ejemplos con tus proyectos.</p>
-          <div class="work-cards">
-            <article class="work-card">
+          <h2 class="text-reveal"><span>Proyectos Destacados</span></h2>
+          <p class="section__lead animate-on-scroll">Casos reales con impacto en negocio. Reemplaza estos ejemplos con tus proyectos.</p>
+          <div class="work-cards stagger-container">
+            <article class="work-card stagger-item card-animate">
               <a class="work-card__media" href="#" aria-label="Proyecto 1">
                 <img src="/assets/img/proyecto-1.jpg" alt="Proyecto Web - Comercio local" loading="lazy" width="720" height="420" />
               </a>
@@ -214,7 +212,7 @@
                 </ul>
               </div>
             </article>
-            <article class="work-card">
+            <article class="work-card stagger-item card-animate">
               <a class="work-card__media" href="#" aria-label="Proyecto 2">
                 <img src="/assets/img/proyecto-2.jpg" alt="Ecommerce con pagos" loading="lazy" width="720" height="420" />
               </a>
@@ -228,7 +226,7 @@
                 </ul>
               </div>
             </article>
-            <article class="work-card">
+            <article class="work-card stagger-item card-animate">
               <a class="work-card__media" href="#" aria-label="Proyecto 3">
                 <img src="/assets/img/proyecto-3.webp" alt="Asistente con IA" loading="lazy" width="720" height="420" />
               </a>
@@ -246,14 +244,14 @@
         </div>
       </section>
 
-      <section id="servicios" class="section">
+      <section id="servicios" class="section section-reveal">
         <div class="container">
-          <h2>Servicios Principales</h2>
-          <p class="section__lead">Enfócate en lo que realmente importa. Dos soluciones probadas que generan resultados reales para tu negocio.</p>
+          <h2 class="text-reveal"><span>Servicios Principales</span></h2>
+          <p class="section__lead animate-on-scroll">Enfócate en lo que realmente importa. Dos soluciones probadas que generan resultados reales para tu negocio.</p>
 
           <div class="service-group">
-            <div class="pricing">
-              <article class="price-card price-card--featured">
+            <div class="pricing stagger-container">
+              <article class="price-card price-card--featured stagger-item card-animate">
                 <span class="price-card__ribbon">Más vendido</span>
                 <h3>One Page Informativa</h3>
                 <p class="price"><strong>$190</strong></p>
@@ -265,10 +263,10 @@
                   <li>Optimizado para móviles</li>
                 </ul>
                 <div class="price-card__bonus">BONO: 1 año de hosting + 1 dominio TOTALMENTE GRATIS</div>
-                <a class="button button--primary price-card__cta"  href="https://wa.me/584242536795?text=Hola%20Alfredo%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web">Quiero este plan</a>
+                <a class="button button--primary price-card__cta" href="/servicios/one-page.html">Quiero este plan</a>
               </article>
 
-              <article class="price-card price-card--featured">
+              <article class="price-card price-card--featured stagger-item card-animate">
                 <span class="price-card__ribbon price-card__ribbon--alt">OFERTA ESPECIAL</span>
                 <h3>Ecommerce Completo</h3>
                 <p class="price"><strong>$450</strong></p>
@@ -285,15 +283,15 @@
                 <a class="button button--primary price-card__cta"  href="https://wa.me/584242536795?text=Hola%20Alfredo%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web">Quiero mi Ecommerce</a>
               </article>
             </div>
-            <p class="form__hint">Promoción por tiempo limitado. El ecommerce completo normalmente costaría $1,200+. Aprovecha el precio especial.</p>
+            <p class="form__hint animate-on-scroll">Promoción por tiempo limitado. El ecommerce completo normalmente costaría $1,200+. Aprovecha el precio especial.</p>
           </div>
 
           <div class="service-group service-group--centered">
-            <h3>¿Por qué tu negocio necesita una página web?</h3>
-            <p class="section__lead" style="text-align: center; margin-bottom: 2rem;">En la era digital, tener presencia online no es opcional. Es fundamental para el crecimiento y éxito de tu negocio.</p>
+            <h3 class="text-reveal"><span>¿Por qué tu negocio necesita una página web?</span></h3>
+            <p class="section__lead animate-on-scroll" style="text-align: center; margin-bottom: 2rem;">En la era digital, tener presencia online no es opcional. Es fundamental para el crecimiento y éxito de tu negocio.</p>
             
-            <div class="grid grid--2 service-comparison">
-              <div class="info-card">
+            <div class="grid grid--2 service-comparison stagger-container">
+              <div class="info-card stagger-item card-animate">
                 <h4>🌐 Presencia Digital Profesional</h4>
                 <p>Una página web es tu tarjeta de presentación digital las 24 horas del día. Los clientes te buscan en internet antes de contactarte.</p>
                 <div class="benefits">
@@ -307,7 +305,7 @@
                 </div>
               </div>
               
-              <div class="info-card">
+              <div class="info-card stagger-item card-animate">
                 <h4>📈 Generación de Leads Automática</h4>
                 <p>Tu página web trabaja para ti incluso cuando duermes. Convierte visitantes en clientes potenciales de forma automática.</p>
                 <div class="benefits">
@@ -322,8 +320,8 @@
               </div>
             </div>
 
-            <div class="grid grid--2 service-comparison" style="margin-top: 2rem;">
-              <div class="info-card">
+            <div class="grid grid--2 service-comparison stagger-container" style="margin-top: 2rem;">
+              <div class="info-card stagger-item card-animate">
                 <h4>🔍 Visibilidad en Google</h4>
                 <p>El 93% de las experiencias online comienzan con un motor de búsqueda. Sin página web, eres invisible para tus clientes potenciales.</p>
                 <div class="benefits">
@@ -337,7 +335,7 @@
                 </div>
               </div>
               
-              <div class="info-card">
+              <div class="info-card stagger-item card-animate">
                 <h4>💼 Ventaja Competitiva</h4>
                 <p>Mientras tus competidores solo usan redes sociales, tú tienes un activo digital propio que controlas completamente.</p>
                 <div class="benefits">
@@ -364,13 +362,13 @@
         </div>
       </section>
 
-      <section id="estrategia" class="section section--alt">
+      <section id="estrategia" class="section section--alt section-reveal">
         <div class="container">
-          <h2>Proceso para iniciar un proyecto</h2>
-          <p class="section__lead">Trabajo con un flujo basado en datos para que tu inversión genere resultados medibles.</p>
+          <h2 class="text-reveal"><span>Proceso para iniciar un proyecto</span></h2>
+          <p class="section__lead animate-on-scroll">Trabajo con un flujo basado en datos para que tu inversión genere resultados medibles.</p>
           
-          <div class="process-timeline">
-            <div class="process-step">
+          <div class="process-timeline stagger-container">
+            <div class="process-step stagger-item">
               <div class="process-step__icon">
                 <span class="step-number">1</span>
                 <div class="icon-bg">📋</div>
@@ -386,7 +384,7 @@
               </div>
             </div>
 
-            <div class="process-step">
+            <div class="process-step stagger-item">
               <div class="process-step__icon">
                 <span class="step-number">2</span>
                 <div class="icon-bg">🔍</div>
@@ -402,7 +400,7 @@
               </div>
             </div>
 
-            <div class="process-step">
+            <div class="process-step stagger-item">
               <div class="process-step__icon">
                 <span class="step-number">3</span>
                 <div class="icon-bg">📊</div>
@@ -418,7 +416,7 @@
               </div>
             </div>
 
-            <div class="process-step">
+            <div class="process-step stagger-item">
               <div class="process-step__icon">
                 <span class="step-number">4</span>
                 <div class="icon-bg">⚡</div>
@@ -434,7 +432,7 @@
               </div>
             </div>
 
-            <div class="process-step">
+            <div class="process-step stagger-item">
               <div class="process-step__icon">
                 <span class="step-number">5</span>
                 <div class="icon-bg">📈</div>
@@ -451,7 +449,7 @@
             </div>
           </div>
 
-          <div class="process-cta">
+          <div class="process-cta fade-in-scale">
             <h3>¿Listo para empezar tu proyecto?</h3>
             <p>Cada paso está diseñado para maximizar el ROI de tu inversión en marketing digital.</p>
             <div class="hero__cta">
@@ -462,20 +460,20 @@
         </div>
       </section>
 
-      <section id="testimonios" class="section section--alt">
+      <section id="testimonios" class="section section--alt section-reveal">
         <div class="container">
-          <h2>Lo que dicen mis clientes</h2>
-          <div class="testimonials">
-            <figure class="testimonial">
-              <blockquote>“El sitio cargó más rápido y subimos posiciones en Google en pocas semanas.”</blockquote>
+          <h2 class="text-reveal"><span>Lo que dicen mis clientes</span></h2>
+          <div class="testimonials stagger-container">
+            <figure class="testimonial stagger-item card-animate">
+              <blockquote>"El sitio cargó más rápido y subimos posiciones en Google en pocas semanas."</blockquote>
               <figcaption>María P. · Retail en Caracas</figcaption>
             </figure>
-            <figure class="testimonial">
-              <blockquote>“La tienda online duplicó las ventas. El panel nos ahorra horas cada semana.”</blockquote>
+            <figure class="testimonial stagger-item card-animate">
+              <blockquote>"La tienda online duplicó las ventas. El panel nos ahorra horas cada semana."</blockquote>
               <figcaption>José L. · Ecommerce</figcaption>
             </figure>
-            <figure class="testimonial">
-              <blockquote>“El asistente con IA resolvió consultas frecuentes y liberó al equipo de soporte.”</blockquote>
+            <figure class="testimonial stagger-item card-animate">
+              <blockquote>"El asistente con IA resolvió consultas frecuentes y liberó al equipo de soporte."</blockquote>
               <figcaption>Andrea R. · Servicios</figcaption>
             </figure>
           </div>
@@ -551,25 +549,27 @@
 
       
 
-      <section id="faq" class="section">
+      <section id="faq" class="section section-reveal">
         <div class="container faq">
-          <h2>Preguntas Frecuentes</h2>
-          <details open>
-            <summary>¿Cuánto tarda un proyecto típico?</summary>
-            <p>Una landing tarda 2–4 semanas; una web corporativa 4–8; ecommerce 6–10, según alcance.</p>
-          </details>
-          <details>
-            <summary>¿Incluye SEO?</summary>
-            <p>Sí. Implemento SEO técnico, performance y schema. Contenidos opcional.</p>
-          </details>
-          <details>
-            <summary>¿Qué formas de pago aceptas?</summary>
-            <p>Transferencias, Zelle, pasarela o cripto; por hitos.</p>
-          </details>
-          <details>
-            <summary>¿Entregas el código fuente?</summary>
-            <p>Sí, el código es del cliente; puedo configurar hosting y CI/CD.</p>
-          </details>
+          <h2 class="text-reveal"><span>Preguntas Frecuentes</span></h2>
+          <div class="stagger-container">
+            <details class="stagger-item card-animate" open>
+              <summary>¿Cuánto tarda un proyecto típico?</summary>
+              <p>Una landing tarda 2–4 semanas; una web corporativa 4–8; ecommerce 6–10, según alcance.</p>
+            </details>
+            <details class="stagger-item card-animate">
+              <summary>¿Incluye SEO?</summary>
+              <p>Sí. Implemento SEO técnico, performance y schema. Contenidos opcional.</p>
+            </details>
+            <details class="stagger-item card-animate">
+              <summary>¿Qué formas de pago aceptas?</summary>
+              <p>Transferencias, Zelle, pasarela o cripto; por hitos.</p>
+            </details>
+            <details class="stagger-item card-animate">
+              <summary>¿Entregas el código fuente?</summary>
+              <p>Sí, el código es del cliente; puedo configurar hosting y CI/CD.</p>
+            </details>
+          </div>
         </div>
       </section>
 
