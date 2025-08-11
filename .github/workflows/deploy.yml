@@ -20,5 +20,5 @@ jobs:
           password: ${{ secrets.FTPPASSWORD }}
           port: ${{ secrets.FTPPORT }}
           protocol: ftp
-          local-dir: ./
+          local-dir: ./var/www/html/valfredoromero.io/
           server-dir: public_html/
