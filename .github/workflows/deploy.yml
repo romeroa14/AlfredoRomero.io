@@ -21,4 +21,4 @@ jobs:
           port: ${{ secrets.FTPPORT }}
           protocol: ftp
           local-dir: ./
-          server-dir: public_html/
+          server-dir: /home/u423848738/domains/alfredoromero.io/public_html/
