@@ -11,6 +11,20 @@
   updateHeaderHeight();
   window.addEventListener('resize', updateHeaderHeight, {passive:true});
 
+  // Header sticky effects
+  function handleHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+    
+    if (window.scrollY > 50) {
+      header.classList.add('header--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
+    }
+  }
+  
+  window.addEventListener('scroll', handleHeaderScroll, {passive: true});
+
   // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{
