@@ -4,91 +4,250 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web Informativa Dinámica | Alfredo Romero</title>
+  <title>Web 5 Páginas | Alfredo Romero - Desarrollo Web</title>
   <meta name="description"
-    content="Sitio web dinámico con hasta 5 páginas, blog integrado y panel de administración. Ideal para escalar contenido." />
+    content="Sitio web de 5 páginas con blog, SEO On-Page y panel de administración WordPress. Diseño responsive y optimizado para conversiones." />
   <link rel="canonical" href="https://alfredoromero.io/servicios/informativa-dinamica.html" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 
 <body>
   <header class="header">
-    <div class="container header__inner"><a href="/" class="logo"><img src="/favicon.svg" alt="AR" width="28"
-          height="28" /><span>Alfredo Romero</span></a>
-      <nav class="nav"><a href="/">Inicio</a><a href="/#portafolio">Proyectos</a><a href="/#servicios">Servicios</a>
+    <div class="container header__inner">
+      <a href="/" class="logo">
+        <img src="/assets/img/arname.png" alt="Alfredo Romero" width="300" height="50" />
+      </a>
+      <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/#portafolio">Proyectos</a>
+        <a href="/#servicios">Servicios</a>
+        <a class="button button--primary" href="https://wa.me/584242536795" target="_blank" rel="nofollow noopener">WhatsApp</a>
       </nav>
     </div>
   </header>
-  <main class="hero hero--text-only" style="padding-top:48px">
+
+  <main class="product-page">
     <div class="container">
-      <div class="hero__content" style="max-width:900px;margin:0 auto;text-align:center">
-        <p class="eyebrow">Desarrollo Web</p>
-        <h1>Informativa Dinámica</h1>
-        <p class="hero__lead">Evoluciona tu sitio con más páginas, blog integrado y panel de administración para crecer
-          sin límites.</p>
-        <div class="hero__cta"><a class="button button--primary" href="#contacto">Quiero Cotizar</a></div>
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <a href="/planes.html">Servicios</a>
+        <span>/</span>
+        <span>Web 5 Páginas</span>
+      </nav>
+
+      <!-- Product Layout -->
+      <div class="product-layout">
+        <!-- Product Image -->
+        <div class="product-image">
+          <div class="image-container">
+            <img src="/assets/img/web-5-paginas-preview.png" alt="Web 5 Páginas - Vista previa" loading="lazy" />
+            <div class="image-overlay">
+              <span class="badge badge--featured">Recomendado</span>
+            </div>
+          </div>
+          <div class="image-gallery">
+            <div class="gallery-thumb active">
+              <img src="/assets/img/web-5-paginas-preview.png" alt="Vista principal" />
+            </div>
+            <div class="gallery-thumb">
+              <img src="/assets/img/web-5-paginas-blog.png" alt="Blog" />
+            </div>
+            <div class="gallery-thumb">
+              <img src="/assets/img/web-5-paginas-admin.png" alt="Panel admin" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+          <div class="product-header">
+            <span class="product-category">Desarrollo Web</span>
+            <h1 class="product-title">Web 5 Páginas</h1>
+            <div class="product-rating">
+              <div class="stars">★★★★★</div>
+              <span class="rating-text">4.8/5 (89 reseñas)</span>
+            </div>
+            <div class="product-price">
+              <span class="price-current">$290</span>
+              <span class="price-original">$450</span>
+              <span class="price-discount">-36%</span>
+            </div>
+          </div>
+
+          <div class="product-description">
+            <p>Sitio web completo de 5 páginas con blog integrado y panel de administración WordPress. Perfecto para negocios que necesitan más contenido y control sobre su sitio web. Incluye SEO On-Page básico para mejor posicionamiento.</p>
+          </div>
+
+          <!-- Features -->
+          <div class="product-features">
+            <h3>¿Qué incluye este servicio?</h3>
+            <div class="features-grid">
+              <div class="feature-item">
+                <div class="feature-icon">📄</div>
+                <div class="feature-content">
+                  <h4>5 Páginas + Blog</h4>
+                  <p>Hasta 5 páginas principales más blog integrado</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">🔧</div>
+                <div class="feature-content">
+                  <h4>Panel WordPress</h4>
+                  <p>Panel de administración completo y fácil de usar</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <div class="feature-content">
+                  <h4>Totalmente Responsive</h4>
+                  <p>Se ve perfecto en todos los dispositivos</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">🔍</div>
+                <div class="feature-content">
+                  <h4>SEO On-Page</h4>
+                  <p>Optimización básica para aparecer en Google</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-content">
+                  <h4>Rendimiento Optimizado</h4>
+                  <p>Carga rápida y experiencia de usuario fluida</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">🎁</div>
+                <div class="feature-content">
+                  <h4>BONO GRATIS</h4>
+                  <p>1 año de hosting + 1 dominio incluidos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WhatsApp Form -->
+          <div class="whatsapp-form">
+            <h3>¡Solicita tu cotización ahora!</h3>
+            <p>Llena el formulario y te contactaré en menos de 2 horas</p>
+            
+            <form id="whatsappForm" class="contact-form">
+              <div class="form-row">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
+              </div>
+              
+              <div class="form-row">
+                <label for="telefono">WhatsApp *</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="+58 4XX XXX XXXX" />
+              </div>
+              
+              <div class="form-row">
+                <label for="negocio">Tipo de negocio</label>
+                <select id="negocio" name="negocio">
+                  <option value="">Selecciona tu negocio</option>
+                  <option value="Restaurante">Restaurante</option>
+                  <option value="Tienda">Tienda</option>
+                  <option value="Servicios">Servicios</option>
+                  <option value="Consultoría">Consultoría</option>
+                  <option value="Otro">Otro</option>
+                </select>
+              </div>
+              
+              <div class="form-row">
+                <label for="mensaje">¿Qué páginas necesitas?</label>
+                <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntame qué páginas quieres (ej: Inicio, Servicios, Blog, Contacto, etc.)"></textarea>
+              </div>
+              
+              <button type="submit" class="button button--cta whatsapp-submit">
+                <span class="whatsapp-icon">💬</span>
+                Solicitar por WhatsApp
+              </button>
+            </form>
+          </div>
+
+          <!-- Trust Signals -->
+          <div class="trust-signals">
+            <div class="trust-item">
+              <span class="trust-icon">⚡</span>
+              <span>Entrega en 2-3 semanas</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">🛡️</span>
+              <span>Garantía de satisfacción</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">💳</span>
+              <span>Pago seguro</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
-  <section class="section">
-    <div class="container">
-      <h2>¿Qué Incluye?</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>Estructura</h3>
-          <ul class="list list--check">
-            <li>Hasta 5 páginas</li>
-            <li>Blog integrado</li>
-            <li>Menú y pie personalizados</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Gestión</h3>
-          <ul class="list list--check">
-            <li>Panel WordPress</li>
-            <li>Roles y permisos</li>
-            <li>Editor visual</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Rendimiento</h3>
-          <ul class="list list--check">
-            <li>SEO On‑Page básico</li>
-            <li>Optimización de imágenes</li>
-            <li>Seguridad y copias</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-  <section id="contacto" class="section">
-    <div class="container contact">
-      <div class="contact__info">
-        <h2>Solicitar Cotización</h2>
-        <p>Tiempo típico: 2–3 semanas.</p>
-      </div>
-      <form class="form" action="mailto:info@alfredoromero.io" method="post" enctype="text/plain">
-        <div class="form__row"><label for="nombre">Nombre</label><input id="nombre" name="nombre" required /></div>
-        <div class="form__row"><label for="email">Email</label><input id="email" type="email" name="email" required />
-        </div>
-        <div class="form__row"><label for="presupuesto">Presupuesto</label><select id="presupuesto" name="presupuesto">
-            <option value="">Selecciona</option>
-            <option>$400–$800</option>
-            <option>$800–$1.500</option>
-          </select></div>
-        <div class="form__row"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje"
-            rows="5"></textarea></div><input type="hidden" name="servicio" value="Informativa Dinámica" /><button
-          class="button button--primary form__submit" type="submit">Enviar</button>
-      </form>
-    </div>
-  </section>
+
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© <span id="year"></span> Alfredo Romero</p>
-      <nav class="footer__nav"><a href="/">Inicio</a><a href="/#servicios">Servicios</a></nav>
+      <div class="footer__content">
+        <div class="footer__brand">
+          <p class="footer__copyright">© <span id="year"></span> Alfredo Romero</p>
+          <p class="footer__profession">Ingeniero En Sistemas</p>
+        </div>
+        <nav class="footer__nav">
+          <a href="/">Inicio</a>
+          <a href="/#portafolio">Proyectos</a>
+          <a href="/#servicios">Servicios</a>
+          <a href="/planes.html">Planes</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#contacto">Contacto</a>
+        </nav>
+      </div>
     </div>
   </footer>
+
   <script src="/assets/js/main.js" defer></script>
+  <script>
+    // WhatsApp Form Handler
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const nombre = formData.get('nombre');
+      const telefono = formData.get('telefono');
+      const negocio = formData.get('negocio');
+      const mensaje = formData.get('mensaje');
+      
+      const whatsappMessage = `Hola Alfredo, quiero cotizar una Web 5 Páginas:
+
+👤 Nombre: ${nombre}
+📱 WhatsApp: ${telefono}
+🏢 Negocio: ${negocio}
+💬 Mensaje: ${mensaje}
+
+¿Me puedes ayudar?`;
+
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/584242536795?text=${encodedMessage}`;
+      
+      window.open(whatsappUrl, '_blank');
+    });
+
+    // Image Gallery
+    document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        const mainImage = document.querySelector('.image-container img');
+        const thumbImage = this.querySelector('img');
+        
+        mainImage.src = thumbImage.src;
+        
+        document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
 </body>
 
 </html>
