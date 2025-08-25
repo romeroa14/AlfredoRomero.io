@@ -21,7 +21,8 @@
         <a href="/">Inicio</a>
         <a href="/#portafolio">Proyectos</a>
         <a href="/#servicios">Servicios</a>
-        <a class="button button--primary" href="https://wa.me/584242536795" target="_blank" rel="nofollow noopener">WhatsApp</a>
+        <a class="button button--primary" href="https://wa.me/584242536795" target="_blank"
+          rel="nofollow noopener">WhatsApp</a>
       </nav>
     </div>
   </header>
@@ -42,7 +43,8 @@
         <!-- Product Image -->
         <div class="product-image">
           <div class="image-container">
-            <img src="/assets/img/tienda-profesional-preview.png" alt="Tienda Profesional - Vista previa" loading="lazy" />
+            <img src="/assets/img/tienda-profesional-preview.png" alt="Tienda Profesional - Vista previa"
+              loading="lazy" />
             <div class="image-overlay">
               <span class="badge badge--featured">Ecommerce</span>
             </div>
@@ -77,7 +79,8 @@
           </div>
 
           <div class="product-description">
-            <p>Tienda online completa con carrito de compras, pasarela de pago integrada y panel de administración. Perfecta para vender productos online con catálogo ilimitado y gestión completa de ventas.</p>
+            <p>Tienda online completa con carrito de compras, pasarela de pago integrada y panel de administración.
+              Perfecta para vender productos online con catálogo ilimitado y gestión completa de ventas.</p>
           </div>
 
           <!-- Features -->
@@ -95,14 +98,14 @@
                 <div class="feature-icon">💳</div>
                 <div class="feature-content">
                   <h4>Pasarela de Pago</h4>
-                  <p>Integración con Mercado Pago, PayPal, etc.</p>
+                  <p>Se genera un pedido para whatsapp .</p>
                 </div>
               </div>
               <div class="feature-item">
                 <div class="feature-icon">📦</div>
                 <div class="feature-content">
                   <h4>Catálogo Ilimitado</h4>
-                  <p>Agrega todos los productos que necesites</p>
+                  <p>60 productos incluidos + $0.30 por producto adicional</p>
                 </div>
               </div>
               <div class="feature-item">
@@ -129,22 +132,53 @@
             </div>
           </div>
 
+          <!-- Pricing Details -->
+          <div class="pricing-details">
+            <h3>📊 Detalles de Precios por Productos</h3>
+            <div class="pricing-table">
+              <div class="pricing-row pricing-header">
+                <div class="pricing-col">Cantidad de Productos</div>
+                <div class="pricing-col">Precio por Producto</div>
+                <div class="pricing-col">Total</div>
+              </div>
+              <div class="pricing-row">
+                <div class="pricing-col">1-60 productos</div>
+                <div class="pricing-col">Incluidos en el plan</div>
+                <div class="pricing-col">$0.00</div>
+              </div>
+              <div class="pricing-row">
+                <div class="pricing-col">61-150 productos</div>
+                <div class="pricing-col">$0.30 c/u</div>
+                <div class="pricing-col">$27.00 - $45.00</div>
+              </div>
+              <div class="pricing-row pricing-highlight">
+                <div class="pricing-col">151+ productos</div>
+                <div class="pricing-col">$0.20 c/u</div>
+                <div class="pricing-col">Descuento por volumen</div>
+              </div>
+            </div>
+            <div class="pricing-note">
+              <p><strong>💡 Ejemplo:</strong> Si necesitas 200 productos: 60 incluidos + 90 a $0.30 + 50 a $0.20 =
+                $37.00 adicional</p>
+            </div>
+          </div>
+
           <!-- WhatsApp Form -->
           <div class="whatsapp-form">
             <h3>¡Solicita tu cotización ahora!</h3>
             <p>Llena el formulario y te contactaré en menos de 2 horas</p>
-            
+
             <form id="whatsappForm" class="contact-form">
               <div class="form-row">
                 <label for="nombre">Nombre completo *</label>
                 <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
               </div>
-              
+
               <div class="form-row">
                 <label for="telefono">WhatsApp *</label>
                 <input type="tel" id="telefono" name="telefono" required placeholder="+58 4XX XXX XXXX" />
               </div>
-              
+
               <div class="form-row">
                 <label for="negocio">Tipo de negocio</label>
                 <select id="negocio" name="negocio">
@@ -156,12 +190,13 @@
                   <option value="Otro">Otro</option>
                 </select>
               </div>
-              
+
               <div class="form-row">
                 <label for="mensaje">¿Qué productos venderás?</label>
-                <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntame sobre tus productos y qué funcionalidades necesitas en tu tienda"></textarea>
+                <textarea id="mensaje" name="mensaje" rows="3"
+                  placeholder="Cuéntame sobre tus productos y qué funcionalidades necesitas en tu tienda"></textarea>
               </div>
-              
+
               <button type="submit" class="button button--cta whatsapp-submit">
                 <span class="whatsapp-icon">💬</span>
                 Solicitar por WhatsApp
@@ -211,15 +246,15 @@
   <script src="/assets/js/main.js" defer></script>
   <script>
     // WhatsApp Form Handler
-    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    document.getElementById('whatsappForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      
+
       const formData = new FormData(this);
       const nombre = formData.get('nombre');
       const telefono = formData.get('telefono');
       const negocio = formData.get('negocio');
       const mensaje = formData.get('mensaje');
-      
+
       const whatsappMessage = `Hola Alfredo, quiero cotizar una Tienda Profesional:
 
 👤 Nombre: ${nombre}
@@ -231,18 +266,18 @@
 
       const encodedMessage = encodeURIComponent(whatsappMessage);
       const whatsappUrl = `https://wa.me/584242536795?text=${encodedMessage}`;
-      
+
       window.open(whatsappUrl, '_blank');
     });
 
     // Image Gallery
     document.querySelectorAll('.gallery-thumb').forEach(thumb => {
-      thumb.addEventListener('click', function() {
+      thumb.addEventListener('click', function () {
         const mainImage = document.querySelector('.image-container img');
         const thumbImage = this.querySelector('img');
-        
+
         mainImage.src = thumbImage.src;
-        
+
         document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
         this.classList.add('active');
       });
@@ -250,4 +285,4 @@
   </script>
 </body>
 
-</html> 
+</html>
