@@ -15,7 +15,7 @@ echo ""
 # Configurar información del usuario
 echo "👤 Configurando información del usuario..."
 git config --global user.name "Alfredo Romero"
-git config --global user.email "romeroa14@gmail.com"
+git config --global user.email "business@alfredoromero.io"
 
 # Configurar credenciales
 echo "🔐 Configurando credenciales..."
@@ -63,7 +63,7 @@ echo "3. Usa el token como contraseña cuando Git te lo pida"
 echo ""
 
 echo "🔑 Alternativa: Configurar SSH (recomendado)"
-echo "1. Genera una clave SSH: ssh-keygen -t ed25519 -C 'romeroa14@gmail.com'"
+echo "1. Genera una clave SSH: ssh-keygen -t ed25519 -C 'business@alfredoromero.io'"
 echo "2. Agrega la clave a GitHub: cat ~/.ssh/id_ed25519.pub"
 echo "3. Cambia la URL del repo a SSH: git remote set-url origin git@github.com:romeroa14/AlfredoRomero.io.git"
 echo ""
