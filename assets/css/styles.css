@@ -858,9 +858,13 @@ body {
 }
 
 .work-card__media img {
-    width: 100%;
-    height: auto;
-    display: block
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .work-card__body {
@@ -884,6 +888,10 @@ body {
 .work-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(2, 41, 89, .12)
+}
+
+.work-card:hover .work-card__media img {
+    transform: scale(1.05);
 }
 
 /* Testimonials */
@@ -1287,6 +1295,14 @@ body {
 @media (max-width:640px) {
     .cards {
         grid-template-columns: 1fr
+    }
+
+    .work-card__media img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
     }
 
     /* Mobile Menu Styles */
@@ -1942,6 +1958,14 @@ body {
         font-size: 14px;
         min-height: 40px;
         border-radius: 10px;
+    }
+
+    .work-card__media img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 180px;
+        object-fit: cover;
+        object-position: center;
     }
 
     .button--cta {
