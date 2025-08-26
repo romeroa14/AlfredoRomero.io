@@ -55,8 +55,15 @@
     <div class="container header__inner">
       <a href="/" class="logo" aria-label="Inicio">
         <img src="assets/img/arname.png" alt="Logotipo AR" width="300" height="50" />
-
       </a>
+
+      <!-- Botón hamburguesa para móvil -->
+      <button class="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
       <nav class="nav" aria-label="Principal">
         <a href="/#Inicio">Inicio</a>
         <a href="/#portafolio">Proyectos</a>
@@ -69,6 +76,9 @@
       </nav>
     </div>
   </header>
+
+  <!-- Overlay para cerrar menú móvil -->
+  <div class="mobile-menu-overlay"></div>
 
   <main>
     <section class="hero hero--text-only" aria-labelledby="h1-hero">

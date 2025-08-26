@@ -17,14 +17,26 @@
       <a href="/" class="logo">
         <img src="/assets/img/arname.png" alt="Alfredo Romero" width="300" height="50" />
       </a>
+
+      <!-- Botón hamburguesa para móvil -->
+      <button class="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
       <nav class="nav">
         <a href="/">Inicio</a>
         <a href="/#portafolio">Proyectos</a>
         <a href="/#servicios">Servicios</a>
-        <a class="button button--primary" href="https://wa.me/584242536795" target="_blank" rel="nofollow noopener">WhatsApp</a>
+        <a class="button button--primary" href="https://wa.me/584242536795" target="_blank"
+          rel="nofollow noopener">WhatsApp</a>
       </nav>
     </div>
   </header>
+
+  <!-- Overlay para cerrar menú móvil -->
+  <div class="mobile-menu-overlay"></div>
 
   <main class="product-page">
     <div class="container">
@@ -42,7 +54,8 @@
         <!-- Product Image -->
         <div class="product-image">
           <div class="image-container">
-            <img src="/assets/img/rifas-profesional-preview.png" alt="Sistema de Rifas Profesional - Vista previa" loading="lazy" />
+            <img src="/assets/img/rifas-profesional-preview.png" alt="Sistema de Rifas Profesional - Vista previa"
+              loading="lazy" />
             <div class="image-overlay">
               <span class="badge badge--featured">Rifas</span>
             </div>
@@ -77,7 +90,9 @@
           </div>
 
           <div class="product-description">
-            <p>Sistema completo de rifas profesionales con panel de administración, pagos integrados y gestión de rifas ilimitadas. Perfecto para organizaciones, fundaciones y emprendedores que quieren realizar sorteos online de manera profesional.</p>
+            <p>Sistema completo de rifas profesionales con panel de administración, pagos integrados y gestión de rifas
+              ilimitadas. Perfecto para organizaciones, fundaciones y emprendedores que quieren realizar sorteos online
+              de manera profesional.</p>
           </div>
 
           <!-- Features -->
@@ -133,18 +148,18 @@
           <div class="whatsapp-form">
             <h3>¡Solicita tu cotización ahora!</h3>
             <p>Llena el formulario y te contactaré en menos de 2 horas</p>
-            
+
             <form id="whatsappForm" class="contact-form">
               <div class="form-row">
                 <label for="nombre">Nombre completo *</label>
                 <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
               </div>
-              
+
               <div class="form-row">
                 <label for="telefono">WhatsApp *</label>
                 <input type="tel" id="telefono" name="telefono" required placeholder="+58 4XX XXX XXXX" />
               </div>
-              
+
               <div class="form-row">
                 <label for="negocio">Tipo de organización</label>
                 <select id="negocio" name="negocio">
@@ -157,12 +172,13 @@
                   <option value="Otro">Otro</option>
                 </select>
               </div>
-              
+
               <div class="form-row">
                 <label for="mensaje">¿Qué tipo de rifas quieres hacer?</label>
-                <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntame sobre tus rifas (tipo de premios, frecuencia, público objetivo, etc.)"></textarea>
+                <textarea id="mensaje" name="mensaje" rows="3"
+                  placeholder="Cuéntame sobre tus rifas (tipo de premios, frecuencia, público objetivo, etc.)"></textarea>
               </div>
-              
+
               <button type="submit" class="button button--cta whatsapp-submit">
                 <span class="whatsapp-icon">💬</span>
                 Solicitar por WhatsApp
@@ -212,15 +228,15 @@
   <script src="/assets/js/main.js" defer></script>
   <script>
     // WhatsApp Form Handler
-    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    document.getElementById('whatsappForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      
+
       const formData = new FormData(this);
       const nombre = formData.get('nombre');
       const telefono = formData.get('telefono');
       const negocio = formData.get('negocio');
       const mensaje = formData.get('mensaje');
-      
+
       const whatsappMessage = `Hola Alfredo, quiero cotizar un Sistema de Rifas Profesional:
 
 👤 Nombre: ${nombre}
@@ -232,18 +248,18 @@
 
       const encodedMessage = encodeURIComponent(whatsappMessage);
       const whatsappUrl = `https://wa.me/584242536795?text=${encodedMessage}`;
-      
+
       window.open(whatsappUrl, '_blank');
     });
 
     // Image Gallery
     document.querySelectorAll('.gallery-thumb').forEach(thumb => {
-      thumb.addEventListener('click', function() {
+      thumb.addEventListener('click', function () {
         const mainImage = document.querySelector('.image-container img');
         const thumbImage = this.querySelector('img');
-        
+
         mainImage.src = thumbImage.src;
-        
+
         document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
         this.classList.add('active');
       });
@@ -251,4 +267,4 @@
   </script>
 </body>
 
-</html> 
+</html>
