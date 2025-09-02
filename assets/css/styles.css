@@ -2757,3 +2757,1380 @@ body {
         text-transform: uppercase;
     }
 }
+
+/* SEO Plan Cards - Estilos para planes de SEO */
+.seo-plan-card {
+    background: var(--card);
+    border: 2px solid var(--stroke);
+    border-radius: 20px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.seo-plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--brand);
+}
+
+/* Featured plans */
+.seo-plan-card--featured {
+    border-color: var(--brand);
+    box-shadow: 0 8px 32px rgba(43, 132, 255, 0.15);
+    background: linear-gradient(135deg, #ffffff, #f8faff);
+}
+
+.seo-plan-card--featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+}
+
+.seo-plan-card--premium {
+    border-color: #f59e0b;
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.15);
+    background: linear-gradient(135deg, #ffffff, #fffbeb);
+}
+
+.seo-plan-card--premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.seo-plan-card--ecommerce {
+    border-color: #10b981;
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+    background: linear-gradient(135deg, #ffffff, #ecfdf5);
+}
+
+.seo-plan-card--ecommerce::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+/* SEO Plan Header */
+.seo-plan-header {
+    padding: 24px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-bottom: 1px solid var(--stroke);
+    position: relative;
+}
+
+.seo-plan-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.seo-plan-badge--basic {
+    background: linear-gradient(135deg, #6b7280, #9ca3af);
+    color: white;
+}
+
+.seo-plan-badge--recommended {
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    color: white;
+    box-shadow: 0 4px 12px rgba(43, 132, 255, 0.3);
+}
+
+.seo-plan-badge--premium {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: white;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.seo-plan-badge--ecommerce {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.seo-plan-header h4 {
+    margin: 0 0 16px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.seo-plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.price-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--brand);
+}
+
+.price-period {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+/* SEO Toggle Button */
+.seo-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(43, 132, 255, 0.3);
+}
+
+.seo-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(43, 132, 255, 0.4);
+}
+
+.seo-toggle-btn.active {
+    background: linear-gradient(135deg, #64748b, #94a3b8);
+}
+
+.toggle-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* SEO Plan Details */
+.seo-plan-details {
+    padding: 0;
+    background: white;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.seo-plan-description {
+    padding: 24px 24px 0 24px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-bottom: 1px solid var(--stroke);
+}
+
+.seo-plan-description p {
+    margin: 0 0 12px 0;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.seo-plan-description p:last-child {
+    margin-bottom: 0;
+}
+
+.seo-plan-description strong {
+    color: var(--brand);
+}
+
+/* SEO Features Grid */
+.seo-features-grid {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.seo-feature {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.seo-feature:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--brand);
+}
+
+.seo-feature--included {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    border-color: #10b981;
+}
+
+.feature-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.seo-feature h5 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.seo-feature p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* SEO Plan CTA */
+.seo-plan-cta {
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-top: 1px solid var(--stroke);
+    text-align: center;
+}
+
+.seo-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    min-height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    border: 2px solid var(--brand);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(43, 132, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.seo-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.seo-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(43, 132, 255, 0.4);
+    text-decoration: none;
+}
+
+.seo-cta-btn:hover::before {
+    left: 100%;
+}
+
+.seo-cta-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(43, 132, 255, 0.3);
+}
+
+.btn-icon {
+    font-size: 16px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.seo-cta-btn:hover .btn-icon {
+    transform: scale(1.1);
+}
+
+.seo-plan-note {
+    display: block;
+    font-size: 13px;
+    color: var(--brand);
+    font-weight: 600;
+    margin-top: 8px;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments for SEO CTA buttons */
+@media (max-width: 768px) {
+    .seo-plan-cta {
+        padding: 16px 20px;
+    }
+
+    .seo-cta-btn {
+        padding: 10px 16px;
+        font-size: 13px;
+        min-height: 40px;
+    }
+
+    .btn-icon {
+        font-size: 14px;
+    }
+
+    .seo-plan-note {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .seo-plan-cta {
+        padding: 14px 16px;
+    }
+
+    .seo-cta-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+        min-height: 36px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-icon {
+        font-size: 13px;
+    }
+
+    .seo-plan-note {
+        font-size: 11px;
+        margin-top: 4px;
+    }
+}
+
+/* SEO Plans Grid - Cuadrícula para planes SEO */
+.seo-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* SEO Plan Cards - Estilos para planes de SEO */
+.seo-plan-card {
+    background: var(--card);
+    border: 2px solid var(--stroke);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    height: fit-content;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.seo-plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--brand);
+}
+
+/* Featured plans */
+.seo-plan-card--featured {
+    border-color: var(--brand);
+    box-shadow: 0 8px 32px rgba(43, 132, 255, 0.15);
+    background: linear-gradient(135deg, #ffffff, #f8faff);
+}
+
+.seo-plan-card--featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+}
+
+.seo-plan-card--premium {
+    border-color: #f59e0b;
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.15);
+    background: linear-gradient(135deg, #ffffff, #fffbeb);
+}
+
+.seo-plan-card--premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.seo-plan-card--ecommerce {
+    border-color: #10b981;
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+    background: linear-gradient(135deg, #ffffff, #ecfdf5);
+}
+
+.seo-plan-card--ecommerce::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+/* SEO Plan Header */
+.seo-plan-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-bottom: 1px solid var(--stroke);
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.seo-plan-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    align-self: flex-start;
+}
+
+.seo-plan-badge--basic {
+    background: linear-gradient(135deg, #6b7280, #9ca3af);
+    color: white;
+}
+
+.seo-plan-badge--recommended {
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    color: white;
+    box-shadow: 0 4px 12px rgba(43, 132, 255, 0.3);
+}
+
+.seo-plan-badge--premium {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: white;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.seo-plan-badge--ecommerce {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.seo-plan-header h4 {
+    margin: 0 0 16px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.seo-plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.price-amount {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--brand);
+}
+
+.price-period {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+/* SEO Plan CTA */
+.seo-plan-cta {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-top: 1px solid var(--stroke);
+    text-align: center;
+    margin-top: auto;
+}
+
+.seo-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    border: 2px solid var(--brand);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(43, 132, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.seo-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.seo-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(43, 132, 255, 0.4);
+    text-decoration: none;
+}
+
+.seo-cta-btn:hover::before {
+    left: 100%;
+}
+
+.seo-cta-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(43, 132, 255, 0.3);
+}
+
+.btn-icon {
+    font-size: 14px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.seo-cta-btn:hover .btn-icon {
+    transform: scale(1.1);
+}
+
+.seo-plan-note {
+    display: block;
+    font-size: 12px;
+    color: var(--brand);
+    font-weight: 600;
+    margin-top: 8px;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments for SEO plans grid */
+@media (min-width: 1200px) {
+    .seo-plans-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .seo-plan-card {
+        min-height: 300px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .seo-plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .seo-plan-card {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 767px) {
+    .seo-plans-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 20px;
+    }
+
+    .seo-plan-card {
+        min-height: auto;
+    }
+
+    .seo-plan-header {
+        padding: 16px;
+    }
+
+    .seo-plan-header h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .price-amount {
+        font-size: 1.5rem;
+    }
+
+    .seo-plan-cta {
+        padding: 14px 16px;
+    }
+
+    .seo-cta-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+        min-height: 36px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-icon {
+        font-size: 13px;
+    }
+
+    .seo-plan-note {
+        font-size: 11px;
+        margin-top: 4px;
+    }
+}
+
+/* ========================================
+   ECOMMERCE PREMIUM LANDING PAGE STYLES
+   ======================================== */
+
+/* Hero Badge */
+.hero-badge {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.badge-text {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Hero Title Premium */
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin: 0 0 2rem 0;
+    font-weight: 800;
+    text-align: center;
+}
+
+.hero-title .highlight {
+    background: linear-gradient(90deg, var(--brand), #ff6b35);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.hero-title .price-highlight {
+    background: linear-gradient(90deg, #ff6b35, #f7931e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 1.2em;
+}
+
+/* Hero Lead Premium */
+.hero-lead-premium {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    text-align: center;
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+/* Hero Stats Premium */
+.hero-stats-premium {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 2px solid var(--stroke);
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand);
+    box-shadow: 0 12px 32px rgba(43, 132, 255, 0.15);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--brand);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Hero CTA Premium */
+.hero-cta-premium {
+    margin-bottom: 3rem;
+}
+
+.button-premium-cta {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: 3px solid #ff6b35;
+    font-size: 1.25rem;
+    padding: 20px 40px;
+    min-height: 60px;
+    box-shadow: 0 12px 32px rgba(255, 107, 53, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.button-premium-cta:hover {
+    background: linear-gradient(135deg, #f7931e, #ff6b35);
+    border-color: #f7931e;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(255, 107, 53, 0.5);
+}
+
+.cta-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--brand);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Trust Badges */
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid var(--stroke);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+    border-color: var(--brand);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(43, 132, 255, 0.15);
+}
+
+.badge-icon {
+    font-size: 1.2rem;
+}
+
+/* Premium Pricing */
+.premium-pricing {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border: 2px solid var(--stroke);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.price-breakdown {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.price-item:last-of-type {
+    border-bottom: none;
+}
+
+.service-name {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.service-price {
+    font-weight: 800;
+    color: var(--brand);
+    font-size: 1.25rem;
+}
+
+.price-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--brand), #ff6b35);
+    margin: 1rem 0;
+    border-radius: 1px;
+}
+
+.price-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border: 2px solid var(--brand);
+}
+
+.total-label {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.total-price {
+    font-weight: 800;
+    color: var(--brand);
+    font-size: 2rem;
+}
+
+.price-note {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 1px solid #f59e0b;
+    border-radius: 12px;
+    padding: 1rem;
+    color: #92400e;
+    font-weight: 600;
+}
+
+/* Service Details Grid */
+.service-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.service-card {
+    background: white;
+    border: 2px solid var(--stroke);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--brand);
+    box-shadow: 0 20px 40px rgba(43, 132, 255, 0.15);
+}
+
+.service-card--featured {
+    border-color: var(--brand);
+    background: linear-gradient(135deg, #ffffff, #f8faff);
+    box-shadow: 0 12px 32px rgba(43, 132, 255, 0.15);
+}
+
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.service-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.service-header .service-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--brand);
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-features li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.service-features li:last-child {
+    border-bottom: none;
+}
+
+/* Bonuses Section */
+.bonuses-section {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    border: 2px solid #10b981;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.bonuses-section h3 {
+    margin: 0 0 2rem;
+    color: #065f46;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.bonuses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.bonus-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #d1fae5;
+    transition: all 0.3s ease;
+}
+
+.bonus-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.15);
+}
+
+.bonus-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.bonus-content h4 {
+    margin: 0 0 0.5rem;
+    color: #065f46;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.bonus-content p {
+    margin: 0;
+    color: #047857;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Main CTA */
+.main-cta {
+    text-align: center;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border: 2px solid var(--stroke);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+}
+
+.main-cta h3 {
+    margin: 0 0 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.main-cta p {
+    margin: 0 0 2rem;
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.button-premium-cta-large {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: 3px solid #ff6b35;
+    font-size: 1.5rem;
+    padding: 24px 48px;
+    min-height: 70px;
+    box-shadow: 0 16px 40px rgba(255, 107, 53, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.button-premium-cta-large:hover {
+    background: linear-gradient(135deg, #f7931e, #ff6b35);
+    border-color: #f7931e;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 20px 48px rgba(255, 107, 53, 0.5);
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.benefit-card {
+    background: white;
+    border: 2px solid var(--stroke);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--brand);
+    box-shadow: 0 20px 40px rgba(43, 132, 255, 0.15);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.benefit-card h3 {
+    margin: 0 0 1rem;
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.benefit-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* Price Comparison */
+.price-comparison {
+    background: white;
+    border: 2px solid var(--stroke);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.price-comparison h3 {
+    margin: 0 0 2rem;
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.comparison-table {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    border: 1px solid var(--stroke);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--stroke);
+}
+
+.comparison-row:last-child {
+    border-bottom: none;
+}
+
+.comparison-header {
+    background: var(--brand);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.comparison-col {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.comparison-total {
+    background: #f0f9ff;
+    font-weight: 700;
+    color: var(--brand);
+}
+
+.comparison-note {
+    color: var(--brand);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Final CTA */
+.final-cta {
+    text-align: center;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    color: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+}
+
+.final-cta h2 {
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+}
+
+.cta-subtitle {
+    margin: 0 0 2rem;
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+.urgency-timer {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.urgency-timer p {
+    margin: 0.5rem 0;
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+.button-premium-cta-final {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border: 3px solid #ff6b35;
+    font-size: 1.5rem;
+    padding: 24px 48px;
+    min-height: 70px;
+    box-shadow: 0 16px 40px rgba(255, 107, 53, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    margin: 2rem 0;
+}
+
+.button-premium-cta-final:hover {
+    background: linear-gradient(135deg, #f7931e, #ff6b35);
+    border-color: #f7931e;
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 20px 48px rgba(255, 107, 53, 0.5);
+}
+
+.contact-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+    color: #cbd5e1;
+    font-size: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-stats-premium {
+        gap: 1rem;
+    }
+
+    .stat-item {
+        min-width: 120px;
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .trust-badges {
+        gap: 1rem;
+    }
+
+    .trust-badge {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+    }
+
+    .service-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .bonuses-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .comparison-table {
+        font-size: 0.8rem;
+    }
+
+    .comparison-col {
+        padding: 0.75rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero-lead-premium {
+        font-size: 1.1rem;
+    }
+
+    .button-premium-cta,
+    .button-premium-cta-large,
+    .button-premium-cta-final {
+        font-size: 1.1rem;
+        padding: 16px 32px;
+        min-height: 56px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-stats-premium {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .trust-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .trust-badge {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+
+    .premium-pricing {
+        padding: 1.5rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .main-cta,
+    .final-cta {
+        padding: 2rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-lead-premium {
+        font-size: 1rem;
+    }
+}
