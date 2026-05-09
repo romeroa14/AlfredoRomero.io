@@ -32,4 +32,4 @@ jobs:
           port: ${{ secrets.FTPPORT }}
           protocol: ftp
           local-dir: ./dist/
-          server-dir: ./public_html/
+          server-dir: ./
