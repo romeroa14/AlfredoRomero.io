@@ -1,0 +1,52 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  keywords?: string;
+  type?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  keywords,
+  type = 'website',
+} = Astro.props;
+
+const siteUrl = 'https://alfredoromero.io';
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: `${siteUrl}/`,
+  name: 'Alfredo Romero - Desarrollo Web & IA',
+  inLanguage: 'es-VE',
+});
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{keywords && <meta name="keywords" content={keywords} />}
+<link rel="canonical" href={canonicalUrl} />
+<meta name="theme-color" content="#0b1220" />
+
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+{ogImage && <meta property="og:image" content={`${siteUrl}${ogImage}`} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{ogImage && <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />}
+
+<script type="application/ld+json" set:html={jsonLd}></script>

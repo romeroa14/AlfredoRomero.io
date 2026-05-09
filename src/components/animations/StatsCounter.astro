@@ -1,0 +1,102 @@
+---
+export interface Props {
+  target: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}
+
+const { target, prefix = '', suffix = '', label } = Astro.props;
+const counterId = `counter-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<li class="counter-item" data-counter-id={counterId}>
+  {prefix && <span class="stats__prefix">{prefix}</span>}
+  <span class="counter-num stats__num" data-target={String(target)} id={counterId}>0</span>
+  <span class="stats__label">{label}</span>
+</li>
+
+<style>
+  .counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .counter-value {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-brand);
+    line-height: 1.1;
+  }
+
+  .counter-prefix {
+    font-size: 0.5em;
+    font-weight: 500;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .counter-suffix {
+    font-weight: 700;
+  }
+
+  .counter-label {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    font-weight: 500;
+    max-width: 140px;
+  }
+</style>
+
+<script>
+  function animateCounter(el: HTMLElement, target: number) {
+    const current = parseInt(el.textContent || '0', 10);
+    const diff = target - current;
+    const duration = 1800;
+    const start = performance.now();
+
+    function step(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(current + diff * eased));
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  function initCounters() {
+    const items = document.querySelectorAll('.counter-item:not(.counter-started)');
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('counter-started');
+            const numEl = entry.target.querySelector('.counter-num') as HTMLElement;
+            if (numEl) {
+              const target = parseInt(numEl.dataset.target || '0', 10);
+              animateCounter(numEl, target);
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    items.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener('DOMContentLoaded', initCounters);
+  document.addEventListener('astro:page-load', initCounters);
+</script>

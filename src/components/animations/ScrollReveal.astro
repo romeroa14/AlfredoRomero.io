@@ -1,0 +1,110 @@
+---
+export interface Props {
+  direction?: 'up' | 'down' | 'left' | 'right' | 'scale';
+  delay?: number;
+  duration?: number;
+  threshold?: number;
+  once?: boolean;
+  as?: string;
+  class?: string;
+}
+
+const {
+  direction = 'up',
+  delay = 0,
+  duration = 600,
+  threshold = 0.15,
+  once = true,
+  as: Tag = 'div',
+  class: extraClass = '',
+} = Astro.props;
+
+const directionMap: Record<string, string> = {
+  up: 'translateY(30px)',
+  down: 'translateY(-30px)',
+  left: 'translateX(30px)',
+  right: 'translateX(-30px)',
+  scale: 'scale(0.92)',
+};
+
+const transform = directionMap[direction] || directionMap.up;
+---
+
+<Tag
+  class={`scroll-reveal ${extraClass}`}
+  data-sr-transform={transform}
+  data-sr-delay={delay}
+  data-sr-duration={duration}
+  data-sr-threshold={threshold}
+  data-sr-once={String(once)}
+>
+  <slot />
+</Tag>
+
+<style>
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .scroll-reveal.sr-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    function applyStyles(el) {
+      var transform = el.dataset.srTransform || 'translateY(30px)';
+      var delay = el.dataset.srDelay || '0';
+      var duration = el.dataset.srDuration || '600';
+      el.style.transition = 'opacity ' + duration + 'ms cubic-bezier(0.4, 0, 0.2, 1), transform ' + duration + 'ms cubic-bezier(0.4, 0, 0.2, 1)';
+      el.style.transitionDelay = delay + 'ms';
+      // Start hidden (for JS-animated reveal)
+      el.classList.add('sr-hidden');
+    }
+
+    function initScrollReveal() {
+      var elements = document.querySelectorAll('.scroll-reveal:not(.sr-ready)');
+      if (!elements.length) return;
+
+      var observer = new IntersectionObserver(
+        function(entries) {
+          entries.forEach(function(entry) {
+            var el = entry.target;
+            var once = el.dataset.srOnce !== 'false';
+            if (entry.isIntersecting) {
+              el.classList.remove('sr-hidden');
+              el.classList.add('revealed');
+              if (once) observer.unobserve(el);
+            } else if (!once) {
+              el.classList.remove('revealed');
+              el.classList.add('sr-hidden');
+            }
+          });
+        },
+        { rootMargin: '0px 0px -40px 0px' }
+      );
+
+      elements.forEach(function(el) {
+        el.classList.add('sr-ready');
+        applyStyles(el);
+        observer.observe(el);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollReveal);
+    } else {
+      initScrollReveal();
+    }
+
+    document.addEventListener('astro:page-load', initScrollReveal);
+  })();
+</script>

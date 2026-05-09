@@ -1,0 +1,777 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Particles from '@/components/animations/Particles.astro';
+import ScrollReveal from '@/components/animations/ScrollReveal.astro';
+
+const servicios = await getCollection('servicios');
+const sorted = servicios.sort((a, b) => a.data.order - b.data.order);
+
+// Group by category, preserving order
+const groups = new Map<string, typeof sorted>();
+for (const s of sorted) {
+  const cat = s.data.category;
+  if (!groups.has(cat)) groups.set(cat, []);
+  groups.get(cat)!.push(s);
+}
+
+const categoryOrder = [...groups.keys()];
+const isSeoCategory = (cat: string) => cat.toLowerCase().includes('seo');
+
+function formatPrice(p: number) {
+  if (p === 0) return 'Consultar';
+  return '$' + p.toLocaleString();
+}
+
+function hasBono(features: Array<{ icon: string; title: string; description: string }>) {
+  return features.find((f) => f.title.includes('BONO') || f.icon === '🎁');
+}
+
+function nonBono(features: Array<{ icon: string; title: string; description: string }>, n = 4) {
+  return features.filter((f) => !f.title.includes('BONO') && f.icon !== '🎁').slice(0, n);
+}
+
+function waLink(title: string) {
+  return `https://wa.me/584242536795?text=${encodeURIComponent('Hola Alfredo, quiero más info sobre: ' + title)}`;
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Planes y Servicios | Alfredo Romero',
+  description:
+    'Todos nuestros planes y servicios de desarrollo web, ecommerce, SEO, sistemas administrativos e inteligencia artificial.',
+  url: 'https://alfredoromero.io/planes',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Alfredo Romero - Desarrollo Web & IA',
+    url: 'https://alfredoromero.io/',
+  },
+};
+---
+
+<BaseLayout
+  title="Planes y Servicios | Alfredo Romero - Desarrollo Web & IA"
+  description="Todos nuestros planes y servicios de desarrollo web, ecommerce, SEO, sistemas administrativos e inteligencia artificial. Precios transparentes y soluciones a medida."
+  keywords="planes desarrollo web, precios páginas web, ecommerce venezuela, SEO profesional, sistemas administrativos, IA automatización"
+  canonical="/planes"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero-planes">
+    <Particles />
+    <div class="container relative z-10">
+      <ScrollReveal>
+        <p class="hero-planes__eyebrow">Planes y Servicios</p>
+      </ScrollReveal>
+      <ScrollReveal delay={150}>
+        <h1 class="hero-planes__title">
+          Todos nuestros servicios de desarrollo web y IA
+        </h1>
+      </ScrollReveal>
+      <ScrollReveal delay={300}>
+        <p class="hero-planes__lead">
+          Encuentra el plan perfecto para tu negocio. Desde páginas web
+          básicas hasta sistemas complejos con inteligencia artificial.
+          Precios transparentes y soluciones a medida.
+        </p>
+      </ScrollReveal>
+      <ScrollReveal delay={450}>
+        <a
+          href="https://wa.me/584242536795"
+          target="_blank"
+          rel="nofollow noopener"
+          class="hero-planes__cta"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Hablar por WhatsApp
+        </a>
+      </ScrollReveal>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE CATEGORIES ═══ -->
+  {
+    categoryOrder.map((cat, catIdx) => {
+      const items = groups.get(cat)!;
+      const isSeo = isSeoCategory(cat);
+      const isFirst = cat === 'Desarrollo Web';
+
+      return isFirst ? (
+        <section class="section">
+          <div class="container">
+            <ScrollReveal>
+              <h2 class="planes-category-title">{cat}</h2>
+            </ScrollReveal>
+            <div class={isSeo ? 'planes-grid planes-grid--seo' : 'planes-grid'}>
+              {items.map((s, i) => (
+                <ScrollReveal delay={i * 100}>
+                  {isSeo ? (
+                    <article class="seo-card">
+                      {s.data.badge && (
+                        <span class="seo-card__badge">{s.data.badge}</span>
+                      )}
+                      <h4 class="seo-card__title">{s.data.title}</h4>
+                      <div class="seo-card__price">
+                        <strong>{formatPrice(s.data.price)}</strong>
+                        {s.data.originalPrice && (
+                          <span class="seo-card__original">${s.data.originalPrice.toLocaleString()}</span>
+                        )}
+                      </div>
+                      <p class="seo-card__label">Pago único</p>
+                      <a
+                        href={`/servicios/${s.slug}/`}
+                        class="seo-card__cta"
+                      >
+                        Ver plan completo
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                      </a>
+                      {hasBono(s.data.features) && (
+                        <p class="seo-card__bonus">
+                          {hasBono(s.data.features)!.description}
+                        </p>
+                      )}
+                    </article>
+                  ) : (
+                    <article class="price-card">
+                      {s.data.badge && (
+                        <span class="price-card__ribbon">{s.data.badge}</span>
+                      )}
+                      <h3 class="price-card__title">{s.data.title}</h3>
+                      <div class="price-card__pricing">
+                        <span class="price-card__price">{formatPrice(s.data.price)}</span>
+                        {s.data.originalPrice && (
+                          <span class="price-card__original">
+                            ${s.data.originalPrice.toLocaleString()}
+                          </span>
+                        )}
+                        {s.data.discount && (
+                          <span class="price-card__discount">{s.data.discount}</span>
+                        )}
+                      </div>
+                      {nonBono(s.data.features).length > 0 && (
+                        <ul class="price-card__features">
+                          {nonBono(s.data.features).map((f) => (
+                            <li>
+                              <span class="price-card__feature-icon">{f.icon}</span>
+                              <span>
+                                <strong>{f.title}</strong>
+                                <small>{f.description}</small>
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {hasBono(s.data.features) && (
+                        <div class="price-card__bonus">
+                          <span>🎁</span>
+                          <span>{hasBono(s.data.features)!.description}</span>
+                        </div>
+                      )}
+                      <a
+                        href={`/servicios/${s.slug}/`}
+                        class="price-card__cta"
+                      >
+                        {s.data.price === 0 ? 'Solicitar cotización' : 'Ver plan completo'}
+                      </a>
+                    </article>
+                  )}
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section class="section">
+          <div class="container">
+            <details class="service-accordion" open={catIdx === 1}>
+              <summary class="service-accordion__summary">
+                <h2 class="planes-category-title planes-category-title--accordion">{cat}</h2>
+                <svg class="service-accordion__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </summary>
+              <div class="service-accordion__content">
+                <div class={isSeo ? 'planes-grid planes-grid--seo' : 'planes-grid'}>
+                  {items.map((s, i) => (
+                    <ScrollReveal delay={i * 80}>
+                      {isSeo ? (
+                        <article class="seo-card">
+                          {s.data.badge && (
+                            <span class="seo-card__badge">{s.data.badge}</span>
+                          )}
+                          <h4 class="seo-card__title">{s.data.title}</h4>
+                          <div class="seo-card__price">
+                            <strong>{formatPrice(s.data.price)}</strong>
+                            {s.data.originalPrice && (
+                              <span class="seo-card__original">${s.data.originalPrice.toLocaleString()}</span>
+                            )}
+                          </div>
+                          <p class="seo-card__label">Pago único</p>
+                          <a
+                            href={`/servicios/${s.slug}/`}
+                            class="seo-card__cta"
+                          >
+                            Ver plan completo
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                          </a>
+                          {hasBono(s.data.features) && (
+                            <p class="seo-card__bonus">
+                              {hasBono(s.data.features)!.description}
+                            </p>
+                          )}
+                        </article>
+                      ) : (
+                        <article class="price-card">
+                          {s.data.badge && (
+                            <span class="price-card__ribbon">{s.data.badge}</span>
+                          )}
+                          <h3 class="price-card__title">{s.data.title}</h3>
+                          <div class="price-card__pricing">
+                            <span class="price-card__price">{formatPrice(s.data.price)}</span>
+                            {s.data.originalPrice && (
+                              <span class="price-card__original">
+                                ${s.data.originalPrice.toLocaleString()}
+                              </span>
+                            )}
+                            {s.data.discount && (
+                              <span class="price-card__discount">{s.data.discount}</span>
+                            )}
+                          </div>
+                          {nonBono(s.data.features).length > 0 && (
+                            <ul class="price-card__features">
+                              {nonBono(s.data.features).map((f) => (
+                                <li>
+                                  <span class="price-card__feature-icon">{f.icon}</span>
+                                  <span>
+                                    <strong>{f.title}</strong>
+                                    <small>{f.description}</small>
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          {hasBono(s.data.features) && (
+                            <div class="price-card__bonus">
+                              <span>🎁</span>
+                              <span>{hasBono(s.data.features)!.description}</span>
+                            </div>
+                          )}
+                          <a
+                            href={`/servicios/${s.slug}/`}
+                            class="price-card__cta"
+                          >
+                            {s.data.price === 0 ? 'Solicitar cotización' : 'Ver plan completo'}
+                          </a>
+                        </article>
+                      )}
+                    </ScrollReveal>
+                  ))}
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <!-- ═══ BOTTOM CTA ═══ -->
+  <section class="section section--alt">
+    <div class="container text-center">
+      <ScrollReveal>
+        <h2 class="planes-bottom__title">¿Necesitas algo personalizado?</h2>
+      </ScrollReveal>
+      <ScrollReveal delay={150}>
+        <p class="planes-bottom__lead">
+          Si ningún plan se ajusta exactamente a lo que necesitas, contáctame
+          y diseñamos una solución a medida para tu negocio.
+        </p>
+      </ScrollReveal>
+      <ScrollReveal delay={300}>
+        <div class="planes-bottom__actions">
+          <a
+            href="https://wa.me/584242536795"
+            target="_blank"
+            rel="nofollow noopener"
+            class="planes-bottom__cta planes-bottom__cta--primary"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Solicitar Cotización Personalizada
+          </a>
+          <a href="/#contacto" class="planes-bottom__cta planes-bottom__cta--ghost">
+            Enviar Mensaje
+          </a>
+        </div>
+      </ScrollReveal>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ═══ HERO ═══ */
+  .hero-planes {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    padding: 100px 0 80px;
+  }
+
+  .hero-planes__eyebrow {
+    color: var(--color-brand);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .hero-planes__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-align: center;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .hero-planes__lead {
+    font-size: 1.125rem;
+    color: var(--color-muted);
+    max-width: 700px;
+    margin-inline: auto;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .hero-planes__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 32px;
+    border-radius: 12px;
+    background: #25D366;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+  }
+
+  .hero-planes__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+  }
+
+  /* ═══ CATEGORY TITLE ═══ */
+  .planes-category-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 32px;
+  }
+
+  .planes-category-title--accordion {
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+  /* ═══ GRID ═══ */
+  .planes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .planes-grid--seo {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 1024px) {
+    .planes-grid--seo {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .planes-grid {
+      grid-template-columns: 1fr;
+    }
+    .planes-grid--seo {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .planes-grid--seo {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ═══ PRICE CARD ═══ */
+  .price-card {
+    position: relative;
+    background: var(--color-card);
+    border: 1px solid var(--color-stroke);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .price-card__ribbon {
+    position: absolute;
+    top: 14px;
+    right: -28px;
+    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-2));
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 36px;
+    transform: rotate(45deg);
+    transform-origin: center;
+    box-shadow: 0 2px 8px rgba(43, 132, 255, 0.25);
+    z-index: 1;
+  }
+
+  .price-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    padding-right: 60px;
+  }
+
+  .price-card__pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .price-card__price {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-brand);
+    line-height: 1;
+  }
+
+  .price-card__original {
+    font-size: 1rem;
+    color: var(--color-muted);
+    text-decoration: line-through;
+  }
+
+  .price-card__discount {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-ok);
+    background: rgba(22, 163, 74, 0.1);
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  .price-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .price-card__features li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .price-card__feature-icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin-top: 1px;
+  }
+
+  .price-card__features li span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .price-card__features li strong {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    line-height: 1.3;
+  }
+
+  .price-card__features li small {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    line-height: 1.3;
+  }
+
+  .price-card__bonus {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ok);
+    background: rgba(22, 163, 74, 0.06);
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .price-card__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-2));
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: auto;
+  }
+
+  .price-card__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(43, 132, 255, 0.35);
+    text-decoration: none;
+  }
+
+  /* ═══ SEO COMPACT CARD ═══ */
+  .seo-card {
+    position: relative;
+    background: var(--color-card);
+    border: 1px solid var(--color-stroke);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  .seo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .seo-card__badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-brand);
+    background: rgba(43, 132, 255, 0.08);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .seo-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .seo-card__price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .seo-card__price strong {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-brand);
+    line-height: 1;
+  }
+
+  .seo-card__original {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    text-decoration: line-through;
+  }
+
+  .seo-card__label {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin-bottom: 16px;
+  }
+
+  .seo-card__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-2));
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+  }
+
+  .seo-card__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(43, 132, 255, 0.3);
+    text-decoration: none;
+  }
+
+  .seo-card__bonus {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-ok);
+    line-height: 1.4;
+  }
+
+  /* ═══ ACCORDION ═══ */
+  .service-accordion {
+    border: none;
+  }
+
+  .service-accordion__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-stroke);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .service-accordion__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .service-accordion__arrow {
+    flex-shrink: 0;
+    color: var(--color-muted);
+    transition: transform 0.3s ease;
+  }
+
+  .service-accordion[open] .service-accordion__arrow {
+    transform: rotate(180deg);
+  }
+
+  .service-accordion__content {
+    padding-top: 32px;
+    overflow: hidden;
+    animation: accordion-open 0.35s ease;
+  }
+
+  @keyframes accordion-open {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ═══ BOTTOM CTA ═══ */
+  .planes-bottom__title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .planes-bottom__title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .planes-bottom__lead {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  .planes-bottom__actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .planes-bottom__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .planes-bottom__cta--primary {
+    background: #25D366;
+    color: #fff;
+  }
+
+  .planes-bottom__cta--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+  }
+
+  .planes-bottom__cta--ghost {
+    background: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-stroke);
+  }
+
+  .planes-bottom__cta--ghost:hover {
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+</style>

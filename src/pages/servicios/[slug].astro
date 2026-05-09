@@ -1,0 +1,212 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const servicios = await getCollection('servicios');
+  return servicios.map((s) => ({
+    params: { slug: s.slug },
+    props: { servicio: s },
+  }));
+}
+
+const { servicio } = Astro.props;
+const { data, body } = servicio;
+const { Content } = await servicio.render();
+
+const waMessage = encodeURIComponent(
+  `Hola Alfredo, quiero cotizar: ${data.title}`
+);
+const waLink = `https://wa.me/584242536795?text=${waMessage}`;
+---
+
+<BaseLayout
+  title={data.metaTitle}
+  description={data.metaDescription}
+  canonical={`https://alfredoromero.io/servicios/${servicio.slug}`}
+>
+  <section class="product-page">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Inicio</a>
+        <span class="mx-2 text-muted">/</span>
+        <a href="/#servicios">Servicios</a>
+        <span class="mx-2 text-muted">/</span>
+        <span>{data.title}</span>
+      </nav>
+
+      <!-- Product Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-8">
+        <!-- Image Gallery Column -->
+        <div class="product-image">
+          <div class="image-container rounded-xl overflow-hidden bg-bg-alt border border-stroke">
+            {
+              data.image ? (
+                <img
+                  src={`/${data.image}`}
+                  alt={`${data.title} - Vista previa`}
+                  loading="lazy"
+                  class="w-full h-auto object-cover"
+                />
+              ) : (
+                <div class="w-full aspect-video bg-bg-alt flex items-center justify-center text-muted text-lg">
+                  Imagen próximamente
+                </div>
+              )
+            }
+            {
+              data.badge && (
+                <div class="image-overlay">
+                  <span class="badge badge--featured">{data.badge}</span>
+                </div>
+              )
+            }
+          </div>
+          {
+            data.gallery && data.gallery.length > 0 && (
+              <div class="image-gallery flex gap-2 mt-3">
+                {data.gallery.map((img, i) => (
+                  <div class={`gallery-thumb ${i === 0 ? 'active' : ''} w-20 h-20 rounded-lg overflow-hidden border-2 ${i === 0 ? 'border-brand' : 'border-stroke hover:border-brand'} cursor-pointer transition-colors`}>
+                    <img
+                      src={`/${img}`}
+                      alt={`Vista ${i + 1}`}
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )
+          }
+        </div>
+
+        <!-- Product Info Column -->
+        <div class="product-info">
+          <div class="product-header">
+            <span class="product-category inline-block text-brand font-semibold text-sm tracking-wide uppercase mb-2">
+              {data.category}
+            </span>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-text mb-3">
+              {data.title}
+            </h1>
+
+            {
+              data.rating && (
+                <div class="product-rating flex items-center gap-2 mb-4">
+                  <div class="stars text-yellow-400">★★★★★</div>
+                  <span class="rating-text text-sm text-muted">
+                    {data.rating}/5 ({data.reviews} reseñas)
+                  </span>
+                </div>
+              )
+            }
+
+            <div class="product-price flex items-baseline gap-3 mb-6">
+              <span class="text-3xl font-bold text-text">
+                ${data.price.toLocaleString()}
+              </span>
+              {
+                data.originalPrice && (
+                  <span class="text-lg text-muted line-through">
+                    ${data.originalPrice.toLocaleString()}
+                  </span>
+                )
+              }
+              {
+                data.discount && (
+                  <span class="inline-block bg-green-900/30 text-green-400 text-sm font-semibold px-2 py-0.5 rounded">
+                    {data.discount}
+                  </span>
+                )
+              }
+            </div>
+          </div>
+
+          <!-- Short Description -->
+          <div class="product-description mb-8">
+            <p class="text-muted leading-relaxed">
+              {body.split('\n').filter(l => l.trim() && !l.trim().startsWith('<')).slice(0, 1).join('')}
+            </p>
+          </div>
+
+          <!-- CTA Button -->
+          <a
+            href={waLink}
+            target="_blank"
+            rel="nofollow noopener"
+            class="button button--cta inline-flex items-center gap-2 bg-brand hover:bg-brand-hover text-white font-semibold px-8 py-3 rounded-lg transition-colors mb-10"
+          >
+            <span>Solicitar este servicio</span>
+          </a>
+
+          <!-- Features Grid -->
+          {
+            data.features && data.features.length > 0 && (
+              <div class="product-features mb-10">
+                <h3 class="text-xl font-bold text-text mb-4">¿Qué incluye este servicio?</h3>
+                <div class="features-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {data.features.map((f) => (
+                    <div class="feature-item flex gap-3 p-4 rounded-lg bg-bg-alt border border-stroke">
+                      <div class="feature-icon text-2xl shrink-0">{f.icon}</div>
+                      <div class="feature-content">
+                        <h4 class="font-semibold text-text text-sm">{f.title}</h4>
+                        <p class="text-muted text-sm mt-1">{f.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+
+      <!-- Additional Content (MDX body) -->
+      {
+        body.trim().length > 0 && (
+          <div class="additional-content mt-12">
+            <div class="prose prose-invert max-w-none">
+              <Content />
+            </div>
+          </div>
+        )
+      }
+
+      <!-- FAQ Section -->
+      {
+        data.faq && data.faq.length > 0 && (
+          <div class="mt-16 border-t border-stroke pt-12">
+            <h2 class="text-2xl font-bold text-text text-center mb-8">Preguntas Frecuentes</h2>
+            <div class="faq max-w-3xl mx-auto space-y-4">
+              {data.faq.map((item) => (
+                <details class="group bg-bg-alt border border-stroke rounded-lg p-4">
+                  <summary class="font-semibold text-text cursor-pointer list-none flex justify-between items-center">
+                    {item.question}
+                    <span class="text-muted group-open:rotate-180 transition-transform">&#9662;</span>
+                  </summary>
+                  <p class="mt-3 text-muted leading-relaxed">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      <!-- Bottom CTA -->
+      <div class="mt-16 text-center border-t border-stroke pt-12">
+        <h2 class="text-2xl font-bold text-text mb-4">¿Listo para empezar?</h2>
+        <p class="text-muted mb-6 max-w-lg mx-auto">
+          Solicita tu cotización ahora y te contactaré en menos de 2 horas.
+        </p>
+        <a
+          href={waLink}
+          target="_blank"
+          rel="nofollow noopener"
+          class="button button--cta inline-flex items-center gap-2 bg-brand hover:bg-brand-hover text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+        >
+          Solicitar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+const glyphs = [
+  { char: '{', x: 6, y: 18, dur: 7, delay: 0, muted: false },
+  { char: '}', x: 84, y: 28, dur: 8.5, delay: 1, muted: false },
+  { char: ';', x: 16, y: 62, dur: 9, delay: 0.5, muted: true },
+  { char: '[ ]', x: 42, y: 78, dur: 10, delay: 2, muted: true },
+  { char: '()', x: 56, y: 40, dur: 7.5, delay: 0.8, muted: false },
+  { char: '&lt;/&gt;', x: 70, y: 70, dur: 9.5, delay: 1.5, muted: true },
+  { char: '=&gt;', x: 28, y: 34, dur: 8, delay: 1.2, muted: false },
+  { char: '||', x: 50, y: 15, dur: 11, delay: 0.3, muted: true },
+  { char: '&&', x: 90, y: 55, dur: 7.8, delay: 2.5, muted: false },
+  { char: '#', x: 12, y: 85, dur: 10.5, delay: 1.8, muted: true },
+  { char: '...', x: 75, y: 8, dur: 8.2, delay: 0.7, muted: false },
+  { char: '{ }', x: 36, y: 52, dur: 9.8, delay: 3, muted: true },
+]
+---
+
+<div class="bg-decor" aria-hidden="true">
+  {glyphs.map((g) => (
+    <span
+      class={`glyph${g.muted ? ' glyph--muted' : ''}`}
+      style={`left:${g.x}%;top:${g.y}%;--dur:${g.dur}s;animation-delay:${g.delay}s`}
+    >
+      {g.char}
+    </span>
+  ))}
+</div>

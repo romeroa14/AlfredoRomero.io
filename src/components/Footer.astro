@@ -1,0 +1,100 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <p class="footer__copyright">&copy; <span id="year"></span> Alfredo Romero</p>
+        <p class="footer__profession">Desarrollado con ❤️ en Venezuela</p>
+      </div>
+      <nav class="footer__nav" aria-label="Secundario">
+        <a href="/">Inicio</a>
+        <a href="/servicios/">Servicios</a>
+        <a href="/#portafolio">Portafolio</a>
+        <a href="/#contacto">Contacto</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid #eef2f7;
+    padding: 32px 0;
+    background: var(--color-bg-alt);
+  }
+
+  .footer__inner {
+    width: 100%;
+  }
+
+  .footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer__copyright {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 16px;
+  }
+
+  .footer__profession {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .footer__nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .footer__nav a {
+    color: var(--color-muted);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s ease;
+    text-decoration: none;
+  }
+
+  .footer__nav a:hover {
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: 24px 0;
+    }
+
+    .footer__content {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .footer__brand {
+      align-items: center;
+    }
+
+    .footer__nav {
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+</style>
+
+<script>
+  document.getElementById('year')!.textContent = String(new Date().getFullYear());
+</script>

@@ -1,0 +1,479 @@
+---
+import ScrollReveal from '@/components/animations/ScrollReveal.astro';
+
+const infoCards = [
+  {
+    emoji: '🌐',
+    title: 'Presencia Digital Profesional',
+    desc: 'Una página web es tu tarjeta de presentación digital las 24 horas del día. Los clientes te buscan en internet antes de contactarte.',
+    bullets: [
+      'Credibilidad y confianza inmediata',
+      'Disponibilidad 24/7 para tus clientes',
+      'Primera impresión profesional',
+      'Diferenciación de la competencia',
+    ],
+  },
+  {
+    emoji: '📈',
+    title: 'Generación de Leads Automática',
+    desc: 'Tu página web trabaja para ti incluso cuando duermes. Convierte visitantes en clientes potenciales de forma automática.',
+    bullets: [
+      'Captura de leads sin esfuerzo',
+      'Alcance global sin límites',
+      'Escalabilidad automática',
+      'ROI medible y optimizable',
+    ],
+  },
+  {
+    emoji: '🔍',
+    title: 'Visibilidad en Google',
+    desc: 'El 93% de las experiencias online comienzan con un motor de búsqueda. Sin página web, eres invisible para tus clientes potenciales.',
+    bullets: [
+      'Apareces en búsquedas relevantes',
+      'Tráfico orgánico gratuito',
+      'Autoridad en tu nicho',
+      'Llegas a clientes que te buscan',
+    ],
+  },
+  {
+    emoji: '💼',
+    title: 'Ventaja Competitiva',
+    desc: 'Mientras tus competidores solo usan redes sociales, tú tienes un activo digital propio que controlas completamente.',
+    bullets: [
+      'Control total de tu marca',
+      'No dependes de algoritmos',
+      'Datos y analíticas propias',
+      'Ventaja sobre la competencia',
+    ],
+  },
+]
+---
+
+<section id="servicios" class="section" aria-labelledby="services-heading">
+  <div class="container">
+    <ScrollReveal>
+      <h2 id="services-heading" class="text-reveal text-center">Servicios Principales</h2>
+    </ScrollReveal>
+
+    <ScrollReveal delay={100}>
+      <p class="section-lead text-center">
+        Enfócate en lo que realmente importa. Dos soluciones probadas que generan resultados reales para tu negocio.
+      </p>
+    </ScrollReveal>
+
+    <div class="pricing-grid">
+      <ScrollReveal delay={150}>
+        <article class="price-card">
+          <span class="price-card-ribbon">Más vendido</span>
+          <h3 class="price-card-title">One Page Informativa</h3>
+          <p class="price"><strong>$280</strong></p>
+          <ul class="price-features">
+            <li>Diseño moderno y responsive</li>
+            <li>Abarcamos toda la información de tu negocio</li>
+            <li>Formulario + redes + mapa</li>
+            <li>SEO básico incluido</li>
+            <li>Optimizado para móviles</li>
+          </ul>
+          <div class="price-card-bonus">BONO: 1 año de hosting + 1 dominio TOTALMENTE GRATIS</div>
+          <a
+            class="btn-primary"
+            href="https://wa.me/584242536795?text=Hola%20Alfredo%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web"
+            target="_blank"
+            rel="nofollow noopener"
+          >
+            Quiero este plan
+          </a>
+        </article>
+      </ScrollReveal>
+
+      <ScrollReveal delay={300}>
+        <article class="price-card">
+          <span class="price-card-ribbon price-card-ribbon--alt">OFERTA ESPECIAL</span>
+          <h3 class="price-card-title">Ecommerce Completo</h3>
+          <p class="price"><strong>$450</strong></p>
+          <ul class="price-features">
+            <li><strong>Carrito de compras completo</strong></li>
+            <li><strong>Pasarela de pago integrada</strong></li>
+            <li><strong>Panel administrativo WooCommerce</strong></li>
+            <li><strong>Catálogo ilimitado</strong></li>
+            <li><strong>SEO técnico completo</strong></li>
+            <li><strong>Automatización con IA</strong></li>
+            <li><strong>Hosting y dominio incluidos</strong></li>
+          </ul>
+          <div class="price-card-bonus">BONO: Chatbot con IA + Optimización SEO avanzada</div>
+          <a
+            class="btn-primary"
+            href="https://wa.me/584242536795?text=Hola%20Alfredo%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web"
+            target="_blank"
+            rel="nofollow noopener"
+          >
+            Quiero mi Ecommerce
+          </a>
+        </article>
+      </ScrollReveal>
+    </div>
+
+    <ScrollReveal delay={400}>
+      <p class="promo-hint text-center">
+        Promoción por tiempo limitado. El ecommerce completo normalmente costaría $1,200+. Aprovecha el precio especial.
+      </p>
+    </ScrollReveal>
+
+    <!-- Why you need a website -->
+    <div class="why-section">
+      <ScrollReveal>
+        <h3 class="text-reveal text-center" style="margin-bottom: 16px;">¿Por qué tu negocio necesita una página web?</h3>
+      </ScrollReveal>
+
+      <ScrollReveal delay={100}>
+        <p class="section-lead text-center">
+          En la era digital, tener presencia online no es opcional. Es fundamental para el crecimiento y éxito de tu negocio.
+        </p>
+      </ScrollReveal>
+
+      <div class="info-grid">
+        {infoCards.map((card, i) => (
+          <ScrollReveal delay={i * 120}>
+            <div class="info-card">
+              <h4 class="info-card-title">{card.emoji} {card.title}</h4>
+              <p class="info-card-desc">{card.desc}</p>
+              <div class="info-card-benefits">
+                <h5>Beneficios principales:</h5>
+                <ul>
+                  {card.bullets.map((b) => <li>{b}</li>)}
+                </ul>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA section -->
+    <ScrollReveal delay={200}>
+      <div class="services-cta text-center">
+        <h3>¿Necesitas algo más específico?</h3>
+        <p>
+          Si estos servicios no se ajustan a tus necesidades, revisa todos nuestros
+          <a href="/planes.html">planes y servicios</a> o solicita una cotización personalizada.
+        </p>
+        <div class="services-cta-buttons">
+          <a class="btn-primary" href="/planes.html">Ver todos los planes</a>
+          <a
+            class="btn-ghost"
+            href="https://wa.me/584242536795?text=Hola%20Alfredo%2C%20necesito%20una%20soluci%C3%B3n%20personalizada"
+            target="_blank"
+            rel="nofollow noopener"
+          >
+            Cotización personalizada
+          </a>
+        </div>
+      </div>
+    </ScrollReveal>
+  </div>
+</section>
+
+<style>
+  .text-center {
+    text-align: center;
+  }
+
+  .text-reveal {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--color-muted);
+    max-width: 650px;
+    margin-inline: auto;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin-inline: auto;
+    margin-bottom: 16px;
+  }
+
+  .price-card {
+    position: relative;
+    background: var(--color-card);
+    border-radius: 16px;
+    padding: 32px 28px;
+    border: 2px solid var(--color-stroke);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .price-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-brand), var(--color-brand-2));
+    border-radius: 16px 16px 0 0;
+  }
+
+  .price-card-ribbon {
+    position: absolute;
+    top: 16px;
+    right: -4px;
+    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-2));
+    color: #fff;
+    padding: 6px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 0 2px 8px rgba(43, 132, 255, 0.3);
+  }
+
+  .price-card-ribbon--alt {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+  }
+
+  .price-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 4px;
+  }
+
+  .price {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--color-brand);
+    margin: 0 0 20px;
+    line-height: 1.1;
+  }
+
+  .price strong {
+    font-weight: 800;
+  }
+
+  .price-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+
+  .price-features li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    color: var(--color-text);
+  }
+
+  .price-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-brand);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  .price-card-bonus {
+    background: rgba(43, 132, 255, 0.06);
+    border: 1px solid rgba(43, 132, 255, 0.15);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 12px;
+    border: 2px solid var(--color-cta);
+    background: linear-gradient(135deg, var(--color-cta), var(--color-cta-2));
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--color-cta-2), var(--color-cta));
+    border-color: var(--color-cta-2);
+    box-shadow: 0 10px 32px rgba(255, 107, 53, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    text-decoration: none;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: 2px solid var(--color-stroke);
+    background: transparent;
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+
+  .promo-hint {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-style: italic;
+    margin-bottom: 48px;
+  }
+
+  .why-section {
+    margin-top: 64px;
+    margin-bottom: 48px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .info-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-stroke);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .info-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 12px;
+  }
+
+  .info-card-desc {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin: 0 0 16px;
+    line-height: 1.6;
+  }
+
+  .info-card-benefits h5 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .info-card-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .info-card-benefits li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  .info-card-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-brand);
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .services-cta {
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(43, 132, 255, 0.05), rgba(105, 167, 255, 0.08));
+    border-radius: 20px;
+    border: 1px solid rgba(43, 132, 255, 0.1);
+    margin-top: 32px;
+  }
+
+  .services-cta h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 8px;
+  }
+
+  .services-cta p {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    margin: 0 0 24px;
+  }
+
+  .services-cta a {
+    color: var(--color-brand);
+    font-weight: 600;
+  }
+
+  .services-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,170 @@
+---
+import ScrollReveal from '@/components/animations/ScrollReveal.astro';
+---
+
+<section id="sobre-nosotros" class="section section--alt" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <ScrollReveal>
+          <h2 id="about-heading" class="text-reveal">Sobre nosotros</h2>
+        </ScrollReveal>
+
+        <ScrollReveal delay={100}>
+          <p class="about-p">
+            Somos un <strong>equipo de desarrollo web especializado</strong> con capacidades tecnológicas integrales
+            para abarcar cualquier proyecto digital. Nuestro expertise incluye <strong>desarrollo frontend y
+            backend</strong>, <strong>ecommerce</strong>, <strong>APIs REST</strong>, <strong>automatización con
+            IA</strong> y <strong>sistemas empresariales</strong> de alta complejidad.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={200}>
+          <p class="about-p">
+            Dominamos tecnologías modernas como <strong>Laravel</strong>, <strong>React</strong>,
+            <strong>Vue.js</strong>, <strong>Node.js</strong> y bases de datos <strong>PostgreSQL</strong>,
+            <strong>MySQL</strong> y <strong>MongoDB</strong>. Construimos <strong>arquitecturas escalables</strong> con
+            <strong>Docker</strong>, <strong>microservicios</strong> y <strong>cloud computing</strong> para
+            aplicaciones que crecen con tu negocio.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={300}>
+          <p class="about-p">
+            Nuestro alcance tecnológico abarca desde <strong>páginas web corporativas</strong> hasta <strong>plataformas
+            complejas</strong>: sistemas de gestión, marketplaces, aplicaciones móviles híbridas, integraciones con
+            APIs de terceros, <strong>chatbots inteligentes</strong> y <strong>soluciones de analítica
+            avanzada</strong>. Trabajamos <strong>remoto</strong> con metodologías ágiles para entregar resultados
+            medibles y escalables.
+          </p>
+        </ScrollReveal>
+
+        <ScrollReveal delay={400}>
+          <ul class="about-list">
+            <li>Desarrollo Full-Stack con tecnologías modernas y escalables</li>
+            <li>Ecommerce y marketplaces con pasarelas de pago integradas</li>
+            <li>APIs REST y GraphQL para integraciones complejas</li>
+            <li>Automatización con IA, chatbots y flujos inteligentes</li>
+            <li>Sistemas empresariales y paneles administrativos avanzados</li>
+            <li>DevOps, Docker y despliegues en la nube</li>
+          </ul>
+        </ScrollReveal>
+
+        <ScrollReveal delay={500}>
+          <div class="about-badges">
+            <span class="badge">Equipo Especializado</span>
+            <span class="badge">Tecnologías Modernas</span>
+            <span class="badge">Soluciones Escalables</span>
+          </div>
+        </ScrollReveal>
+      </div>
+
+      <ScrollReveal direction="right" delay={200}>
+        <figure class="about-media">
+          <img
+            src="/assets/img/team_dev.jpeg"
+            alt="Equipo de desarrollo web especializado - Tecnologías modernas y soluciones escalables"
+            loading="lazy"
+          />
+        </figure>
+      </ScrollReveal>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-p {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .about-p strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .about-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .about-list li {
+    position: relative;
+    padding-left: 28px;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .about-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-brand);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .about-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(43, 132, 255, 0.1);
+    color: var(--color-brand);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(43, 132, 255, 0.2);
+  }
+
+  .about-media img {
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+  }
+
+  .text-reveal {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .about-media {
+      order: -1;
+    }
+  }
+</style>

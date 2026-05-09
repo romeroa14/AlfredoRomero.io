@@ -1,0 +1,473 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Propuesta Técnica — Agente Conversacional Multi-Canal | The Ghost"
+  description="Propuesta técnica para agente conversacional híbrido con WhatsApp Business API + Instagram DM. 1.5M mensajes/día. Desarrollado por The Ghost para Supermarket Cinecittá."
+  keywords="chatbot, whatsapp business api, instagram dm, agente conversacional, RAG, DeepSeek, automatización, the ghost"
+  canonical="/propuesta-chatbot"
+  noIndex={true}
+>
+  <!-- HERO -->
+  <section class="premium-hero">
+    <div class="container">
+      <div class="premium-badge">Propuesta Técnica</div>
+      <h1 class="premium-h1">Agente Conversacional<br>Multi-Canal de Alta Disponibilidad</h1>
+      <p class="premium-sub">WhatsApp Business API + Instagram DM · Arquitectura Híbrida · 1.5M mensajes/día</p>
+      <div class="premium-meta">
+        <span>Cliente: <strong>Supermarket Cinecittá</strong></span>
+        <span>Volumen: <strong>1.5 millones de mensajes diarios</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="kpi-section">
+    <div class="container">
+      <div class="kpi-grid">
+        <div class="kpi kpi-accent"><div class="kpi-val">$7,800</div><div class="kpi-lbl">Inversión Única</div></div>
+        <div class="kpi kpi-green"><div class="kpi-val">80%</div><div class="kpi-lbl">Automatización Inmediata</div></div>
+        <div class="kpi kpi-blue"><div class="kpi-val">1.5M</div><div class="kpi-lbl">Mensajes por Día</div></div>
+        <div class="kpi kpi-accent"><div class="kpi-val">2</div><div class="kpi-lbl">Canales Activos</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUMEN COLQUIAL -->
+  <section class="section-premium">
+    <div class="container">
+      <h2 class="section-h2">¿Qué Hacemos Por Tu Negocio?</h2>
+      <div class="exec-card">
+        <h3>Un equipo de atención al cliente que nunca duerme, nunca se enferma y no cobra sueldo</h3>
+        <p>Imaginate esto: <strong>1.5 millones de mensajes al día</strong> entrando por WhatsApp e Instagram. Tus clientes preguntando por horarios, stock, ubicaciones, precios. En vez de contratar un ejército de personas — o peor, dejar esos mensajes sin responder — <strong>nosotros te armamos un sistema inteligente que responde solo</strong>.</p>
+        <p>El 80% de las consultas las resuelve en automático. El 15% que es más complicado lo maneja con inteligencia artificial. Y el 5% que de verdad necesita un humano — eso sí, se lo pasa a tu equipo con todo el contexto de la conversación.</p>
+        <p><strong>El resultado:</strong> tus clientes reciben respuesta en segundos, 24/7, sin importar la hora ni el volumen. Y vos dejás de perder ventas por mensajes sin contestar.</p>
+      </div>
+
+      <h2 class="section-h2" style="margin-top:48px">Lo Que Solucionamos</h2>
+      <div class="solve-grid">
+        <div class="solve-card">
+          <span class="solve-icon">❌</span>
+          <h4>Mensajes sin responder</h4>
+          <p>Clientes que escriben y no reciben respuesta por horas o días. Cada mensaje ignorado es una venta perdida.</p>
+        </div>
+        <div class="solve-card">
+          <span class="solve-icon">❌</span>
+          <h4>Equipo saturado</h4>
+          <p>Tu gente de atención al cliente repitiendo las mismas respuestas una y otra vez: horarios, dirección, stock.</p>
+        </div>
+        <div class="solve-card">
+          <span class="solve-icon">❌</span>
+          <h4>Sin data de clientes</h4>
+          <p>No sabés qué preguntan, cuándo preguntan, ni qué productos generan más interés. Decisiones a ciegas.</p>
+        </div>
+        <div class="solve-card solve-card--fixed">
+          <span class="solve-icon">✅</span>
+          <h4>Respuesta inmediata 24/7</h4>
+          <p>El bot responde en menos de 1 segundo. Horarios, ubicaciones, stock, tracking de pedidos. Sin demora.</p>
+        </div>
+        <div class="solve-card solve-card--fixed">
+          <span class="solve-icon">✅</span>
+          <h4>Tu equipo hace lo importante</h4>
+          <p>Se liberan de consultas repetitivas. Solo atienden casos que de verdad necesitan criterio humano.</p>
+        </div>
+        <div class="solve-card solve-card--fixed">
+          <span class="solve-icon">✅</span>
+          <h4>Dashboard con toda la data</h4>
+          <p>Métricas en tiempo real: cuántos mensajes, qué preguntan, tiempos de respuesta, satisfacción.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCIONES TÉCNICAS -->
+  <section class="section-premium">
+    <div class="container">
+      <h2 class="section-h2">Nuestras Acciones Tecnológicas</h2>
+      <p class="section-sub">Plan de implementación estructurado en 5 fases. Cada acción está diseñada para garantizar disponibilidad, precisión y escalabilidad del agente conversacional.</p>
+
+      <!-- FASE 1 -->
+      <div class="phase-block">
+        <div class="phase-header"><span class="phase-num">FASE 1</span><h3>Diseño y Preparación de Datos</h3></div>
+        <div class="phase-actions">
+          <div class="action-card">
+            <span class="action-num">01</span>
+            <h4>Discovery y Arquitectura de Alta Disponibilidad</h4>
+            <p>Análisis de requisitos, diseño de arquitectura híbrida con failover automático, definición de SLAs y plan de escalabilidad horizontal.</p>
+            <div class="action-tags"><span>12h</span><span>Arquitectura Cloud</span><span>HA</span></div>
+          </div>
+          <div class="action-card">
+            <span class="action-num">02</span>
+            <h4>Ingesta y Normalización de Datos</h4>
+            <p>Extracción de base de conocimiento del negocio, limpieza y estructuración de datos, creación de corpus para entrenamiento del motor de reglas y RAG.</p>
+            <div class="action-tags"><span>18h</span><span>ETL</span><span>Datos</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div class="phase-block">
+        <div class="phase-header"><span class="phase-num">FASE 2</span><h3>Desarrollo del Motor Conversacional</h3></div>
+        <div class="phase-actions">
+          <div class="action-card">
+            <span class="action-num">03</span>
+            <h4>Motor de Reglas + NLP</h4>
+            <p>Implementación del motor que resuelve el 80% de consultas frecuentes: horarios, stock, ubicaciones, tracking. Clasificación de intención con NLP y árboles de decisión.</p>
+            <div class="action-tags"><span>22h</span><span>NLP</span><span>Reglas</span></div>
+          </div>
+          <div class="action-card">
+            <span class="action-num">04</span>
+            <h4>Sistema RAG + DeepSeek LLM</h4>
+            <p>Configuración de embeddings, vector store, y pipeline RAG para el 15% de consultas complejas. Integración con DeepSeek como modelo de lenguaje base con contexto aumentado.</p>
+            <div class="action-tags"><span>16h</span><span>RAG</span><span>LLM</span><span>Embeddings</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div class="phase-block">
+        <div class="phase-header"><span class="phase-num">FASE 3</span><h3>Integración de Canales</h3></div>
+        <div class="phase-actions">
+          <div class="action-card">
+            <span class="action-num">05</span>
+            <h4>WhatsApp Business API + Meta BSP</h4>
+            <p>Configuración de webhooks, manejo de sesiones, templates de outbound, políticas de ventana de 24h, y optimización de costos por mensaje.</p>
+            <div class="action-tags"><span>14h</span><span>Meta</span><span>API</span></div>
+          </div>
+          <div class="action-card">
+            <span class="action-num">06</span>
+            <h4>Instagram DM API + Graph</h4>
+            <p>Integración con Graph API de Instagram, manejo de mensajes directos, media sharing, y sincronización de estado entre canales.</p>
+            <div class="action-tags"><span>10h</span><span>Graph API</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 4 -->
+      <div class="phase-block">
+        <div class="phase-header"><span class="phase-num">FASE 4</span><h3>Operaciones y Calidad</h3></div>
+        <div class="phase-actions">
+          <div class="action-card">
+            <span class="action-num">07</span>
+            <h4>Escalamiento Inteligente + Dashboard</h4>
+            <p>Sistema de transferencia a agentes humanos con contexto completo. Dashboard en tiempo real con métricas de atención, colas, SLAs y satisfacción.</p>
+            <div class="action-tags"><span>12h</span><span>Dashboard</span><span>Supervisión</span></div>
+          </div>
+          <div class="action-card">
+            <span class="action-num">08</span>
+            <h4>Testing de Carga Masivo</h4>
+            <p>Simulación de 1.5M mensajes diarios con herramientas de stress testing. Validación de tiempos de respuesta, tasa de error y recuperación ante fallos.</p>
+            <div class="action-tags"><span>14h</span><span>QA</span><span>Stress Test</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 5 -->
+      <div class="phase-block">
+        <div class="phase-header"><span class="phase-num">FASE 5</span><h3>Despliegue, Servidores y Entrega</h3></div>
+        <div class="phase-actions">
+          <div class="action-card">
+            <span class="action-num">09</span>
+            <h4>Servidores + Sistema de Colas Anti-Saturación</h4>
+            <p>Configuración de servidores con auto-scaling y balanceo de carga. Implementación de colas con RabbitMQ/Redis para encolar mensajes en horas pico y procesarlos sin perder ninguno. Rate limiting inteligente para que el sistema nunca colapse.</p>
+            <div class="action-tags"><span>14h</span><span>DevOps</span><span>Colas</span><span>Redis</span><span>Cloud</span></div>
+          </div>
+          <div class="action-card">
+            <span class="action-num">10</span>
+            <h4>Documentación y Capacitación</h4>
+            <p>Manuales técnicos, guías de operación, sesiones de capacitación al equipo, y handover completo del sistema con período de garantía de 30 días.</p>
+            <div class="action-tags"><span>8h</span><span>Docs</span><span>Training</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-summary">
+        <div class="action-summary-item"><strong>140 horas</strong><span>de desarrollo total</span></div>
+        <div class="action-summary-item"><strong>5 semanas</strong><span>plazo de entrega</span></div>
+        <div class="action-summary-item"><strong>$7,800</strong><span>inversión total</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARQUITECTURA -->
+  <section class="section-premium">
+    <div class="container">
+      <h2 class="section-h2">Arquitectura Técnica</h2>
+      <p class="section-sub">Diseño híbrido para alta disponibilidad y costos optimizados. Cada capa tiene una responsabilidad clara y mecanismo de failover independiente.</p>
+
+      <div class="channels-row">
+        <div class="channel"><span class="ch-dot ch-wa"></span> WhatsApp API <small>(60% tráfico)</small></div>
+        <div class="channel"><span class="ch-dot ch-ig"></span> Instagram DM <small>(40% tráfico)</small></div>
+        <div class="channel"><span class="ch-dot ch-web"></span> Web / App <small>(Futuro)</small></div>
+      </div>
+
+      <div class="arch-flow">
+        <div class="arch-row">
+          <div class="arch-icon arch-blue">RL</div>
+          <div class="arch-content"><h4>Router + Load Balancer</h4><p>Entrada unificada con rate-limiting, detección de duplicados y enrutamiento inteligente por tipo de consulta y prioridad.</p></div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-row">
+          <div class="arch-icon arch-cyan">80%</div>
+          <div class="arch-content"><h4>Motor de Reglas + NLP</h4><p>Consultas frecuentes: horarios, stock, ubicaciones, tracking de pedidos, FAQs. Respuesta garantizada en &lt;500ms.</p></div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-row">
+          <div class="arch-icon arch-cyan">15%</div>
+          <div class="arch-content"><h4>RAG + DeepSeek LLM</h4><p>Consultas complejas, recomendaciones personalizadas, manejo de objeciones. Contexto aumentado con base de conocimiento del negocio.</p></div>
+        </div>
+        <div class="arch-arrow">↓</div>
+        <div class="arch-row">
+          <div class="arch-icon arch-green">5%</div>
+          <div class="arch-content"><h4>Escalamiento a Agente Humano</h4><p>Casos sensibles, reclamos, ventas complejas. Transfer con contexto completo + historial de la conversación.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVERSIÓN -->
+  <section class="section-premium">
+    <div class="container">
+      <h2 class="section-h2">Inversión del Proyecto</h2>
+
+      <div class="table-card-premium">
+        <div class="table-header"><h3>Resumen de Inversión</h3><span class="table-badge">140 horas</span></div>
+        <table class="premium-table">
+          <thead><tr><th>Concepto</th><th>Detalle</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Desarrollo (10 acciones)</td><td>140 horas × $45/h</td><td>$6,300</td></tr>
+            <tr><td>Buffer técnico + servidores</td><td>Contingencia, colas y cloud</td><td>$1,500</td></tr>
+            <tr class="table-total"><td><strong>TOTAL INVERSIÓN</strong></td><td><strong>Pago único — Sin costos recurrentes de desarrollo</strong></td><td><strong>$7,800</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="invest-grid">
+        <div class="invest-card">
+          <span class="invest-icon">👨‍💻</span>
+          <h4>Equipo Senior LATAM</h4>
+          <p>Desarrolladores especializados en IA conversacional, APIs de Meta y arquitectura cloud.</p>
+        </div>
+        <div class="invest-card">
+          <span class="invest-icon">📅</span>
+          <h4>5 Semanas</h4>
+          <p>Plazo estimado de implementación completa con entregables semanales y reuniones de seguimiento.</p>
+        </div>
+        <div class="invest-card">
+          <span class="invest-icon">🛡️</span>
+          <h4>Garantía Incluida</h4>
+          <p>30 días de soporte post-entrega para ajustes, correcciones y estabilización del sistema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALCANCE -->
+  <section class="section-premium">
+    <div class="container">
+      <h2 class="section-h2">Alcance del Proyecto</h2>
+
+      <h3 class="scope-label scope-included">✅ Incluido</h3>
+      <div class="scope-grid">
+        <div class="scope-item"><span class="scope-check">✓</span> Integración WhatsApp Business API + Instagram DM API</div>
+        <div class="scope-item"><span class="scope-check">✓</span> Motor de reglas para consultas frecuentes (80% automatizado)</div>
+        <div class="scope-item"><span class="scope-check">✓</span> Sistema RAG con embeddings para consultas complejas (15%)</div>
+        <div class="scope-item"><span class="scope-check">✓</span> Escalamiento inteligente a agentes humanos (5%)</div>
+        <div class="scope-item"><span class="scope-check">✓</span> Servidores cloud con auto-scaling y balanceo de carga</div>
+        <div class="scope-item"><span class="scope-check">✓</span> Sistema de colas (Redis/RabbitMQ) anti-saturación</div>
+        <div class="scope-item"><span class="scope-check">✓</span> Dashboard de supervisión en tiempo real</div>
+        <div class="scope-item"><span class="scope-check">✓</span> Testing de carga validado para 1.5M mensajes diarios</div>
+        <div class="scope-item"><span class="scope-check">✓</span> Documentación técnica y capacitación del equipo</div>
+      </div>
+
+      <h3 class="scope-label scope-excluded">✕ No Incluido</h3>
+      <div class="scope-grid">
+        <div class="scope-item scope-muted"><span class="scope-check scope-dim">○</span> Costos mensuales de Meta/WhatsApp API</div>
+        <div class="scope-item scope-muted"><span class="scope-check scope-dim">○</span> Infraestructura cloud (se entrega configurada)</div>
+        <div class="scope-item scope-muted"><span class="scope-check scope-dim">○</span> Desarrollo de apps nativas</div>
+        <div class="scope-item scope-muted"><span class="scope-check scope-dim">○</span> Integraciones con sistemas legacy no documentados</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="premium-footer">
+    <div class="container">
+      <div class="footer-conf">Documento Confidencial</div>
+      <p>Elaborado por <strong>The Ghost</strong> — Equipo de Desarrollo</p>
+      <p>Propuesta confidencial · Supermarket Cinecittá · Mayo 2026</p>
+      <p class="footer-contact">Realizado por <a href="/">alfredoromero.io</a></p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  :root {
+    --prem-bg: #0a0e1a;
+    --prem-card: #111827;
+    --prem-card-alt: #1a1f2e;
+    --prem-text: #e2e8f0;
+    --prem-muted: #cbd5e1;
+    --prem-dim: #94a3b8;
+    --prem-stroke: #1e293b;
+    --prem-stroke-light: #334155;
+    --prem-accent: #06b6d4;
+    --prem-green: #10b981;
+    --prem-orange: #f59e0b;
+    /* Override light theme vars for dark bg — fixes Header/Footer text */
+    --color-text: #e2e8f0;
+    --color-muted: #cbd5e1;
+    --color-bg: #0a0e1a;
+    --color-bg-alt: #111827;
+    --color-stroke: #1e293b;
+    --color-card: #111827;
+  }
+
+  /* ── Hero ── */
+  .premium-hero { background:var(--prem-bg); padding:80px 0 60px; text-align:center; border-bottom:1px solid var(--prem-stroke); }
+  .premium-badge { display:inline-block; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--prem-accent); margin-bottom:16px; padding:4px 14px; background:rgba(6,182,212,0.1); border-radius:20px; border:1px solid rgba(6,182,212,0.15); }
+  .premium-h1 { font-size:clamp(2rem,5vw,3.2rem); font-weight:800; line-height:1.15; letter-spacing:-0.02em; margin-bottom:12px; background:linear-gradient(135deg,#e2e8f0,#f8fafc,var(--prem-accent)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+  .premium-sub { font-size:clamp(1rem,2.5vw,1.2rem); color:var(--prem-muted); font-weight:500; max-width:700px; margin:0 auto 24px; }
+  .premium-meta { display:flex; flex-wrap:wrap; justify-content:center; gap:24px; font-size:0.9rem; color:var(--prem-dim); }
+  .premium-meta strong { color:var(--prem-text); }
+
+  /* ── KPIs ── */
+  .kpi-section { background:var(--prem-bg); padding:0 0 56px; }
+  .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .kpi { background:var(--prem-card); border:1px solid var(--prem-stroke); border-radius:12px; padding:24px; text-align:center; transition:border-color 0.3s,box-shadow 0.3s; }
+  .kpi:hover { border-color:var(--prem-stroke-light); box-shadow:0 4px 24px rgba(0,0,0,0.4); }
+  .kpi-val { font-size:1.8rem; font-weight:800; letter-spacing:-0.02em; margin-bottom:4px; }
+  .kpi-lbl { font-size:0.85rem; color:var(--prem-muted); font-weight:500; }
+  .kpi-accent .kpi-val { color:var(--prem-accent); }
+  .kpi-green .kpi-val { color:var(--prem-green); }
+  .kpi-blue .kpi-val { color:#3b82f6; }
+
+  /* ── Sections ── */
+  .section-premium { background:var(--prem-bg); padding:48px 0; }
+  .section-h2 { font-size:1.4rem; font-weight:700; color:var(--prem-text); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .section-h2::before { content:''; width:4px; height:24px; background:linear-gradient(180deg,#3b82f6,var(--prem-accent)); border-radius:2px; }
+  .section-sub { color:var(--prem-muted); margin-bottom:24px; font-size:0.95rem; line-height:1.7; }
+
+  .exec-card { background:var(--prem-card); border:1px solid var(--prem-stroke); border-radius:12px; padding:36px; position:relative; overflow:hidden; }
+  .exec-card::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 100% 0%,rgba(59,130,246,0.06),transparent 70%); pointer-events:none; }
+  .exec-card h3 { font-size:1.15rem; font-weight:700; color:var(--prem-text); margin-bottom:16px; position:relative; }
+  .exec-card p { color:var(--prem-muted); line-height:1.8; font-size:0.95rem; margin-bottom:12px; position:relative; }
+
+  /* ── Architecture ── */
+  .channels-row { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+  .channel { display:flex; align-items:center; gap:8px; padding:8px 16px; background:var(--prem-card); border:1px solid var(--prem-stroke); border-radius:8px; font-size:0.85rem; font-weight:600; color:var(--prem-muted); }
+  .ch-dot { width:10px; height:10px; border-radius:50%; }
+  .ch-wa { background:#25D366; box-shadow:0 0 8px rgba(37,211,102,0.4); }
+  .ch-ig { background:#E4405F; box-shadow:0 0 8px rgba(228,64,95,0.4); }
+  .ch-web { background:#3b82f6; box-shadow:0 0 8px rgba(59,130,246,0.3); }
+  .channel small { color:var(--prem-dim); font-weight:400; }
+
+  .arch-flow { margin:24px 0; }
+  .arch-row { display:flex; align-items:center; gap:20px; padding:20px 24px; background:var(--prem-card); border:1px solid var(--prem-stroke); }
+  .arch-row:first-child { border-radius:12px 12px 0 0; }
+  .arch-row:last-child { border-radius:0 0 12px 12px; }
+  .arch-row + .arch-arrow + .arch-row { border-top:none; }
+  .arch-arrow { text-align:center; font-size:1.4rem; color:var(--prem-dim); padding:4px 0; }
+  .arch-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:700; flex-shrink:0; }
+  .arch-blue { background:rgba(59,130,246,0.2); color:#3b82f6; }
+  .arch-cyan { background:rgba(6,182,212,0.2); color:var(--prem-accent); }
+  .arch-green { background:rgba(16,185,129,0.15); color:var(--prem-green); }
+  .arch-content h4 { font-weight:700; font-size:0.95rem; color:var(--prem-text); margin-bottom:4px; }
+  .arch-content p { font-size:0.85rem; color:var(--prem-muted); line-height:1.5; margin:0; }
+
+  /* ── Tables ── */
+  .table-card-premium { background:var(--prem-card); border:1px solid var(--prem-stroke); border-radius:12px; overflow:hidden; margin-bottom:16px; }
+  .table-header { padding:20px 24px; border-bottom:1px solid var(--prem-stroke); display:flex; align-items:center; justify-content:space-between; }
+  .table-header h3 { font-size:1rem; font-weight:700; color:var(--prem-text); margin:0; }
+  .table-badge { font-size:0.75rem; font-weight:600; padding:4px 12px; border-radius:20px; background:rgba(59,130,246,0.15); color:#3b82f6; }
+  .table-badge-green { background:rgba(16,185,129,0.15); color:var(--prem-green); }
+  .table-note { font-size:0.9rem; color:var(--prem-muted); padding:12px 0; }
+
+  .premium-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+  .premium-table thead th { text-align:left; padding:14px 16px; background:var(--prem-card-alt); border-bottom:1px solid var(--prem-stroke); font-weight:600; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--prem-muted); }
+  .premium-table tbody td { padding:12px 16px; border-bottom:1px solid var(--prem-stroke); color:var(--prem-text); }
+  .premium-table tbody td:last-child { text-align:right; font-weight:600; color:var(--prem-accent); }
+  .premium-table tbody td:nth-child(2) { text-align:center; color:var(--prem-text); }
+  .premium-table .table-subtotal td { font-weight:700; color:var(--prem-text); background:var(--prem-card-alt); }
+  .premium-table .table-total td { font-weight:700; color:var(--prem-text); background:var(--prem-card); border-bottom:none; }
+  .premium-table .table-total td:last-child { font-size:1.1rem; color:var(--prem-accent); }
+
+  /* ── Phase Blocks ── */
+  .phase-block { margin-bottom:32px; }
+  .phase-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--prem-stroke); }
+  .phase-num { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--prem-accent); background:rgba(6,182,212,0.1); padding:4px 12px; border-radius:6px; border:1px solid rgba(6,182,212,0.15); }
+  .phase-header h3 { font-size:1.15rem; font-weight:700; color:var(--prem-text); margin:0; }
+  .phase-actions { display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:14px; }
+
+  /* ── Action Cards ── */
+  .actions-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; }
+  .action-card { background:var(--prem-card); border:1px solid var(--prem-stroke); border-radius:12px; padding:24px; transition:border-color 0.3s,box-shadow 0.3s; position:relative; }
+  .action-card:hover { border-color:var(--prem-stroke-light); box-shadow:0 4px 24px rgba(0,0,0,0.4); }
+  .action-num { font-size:2.5rem; font-weight:900; color:rgba(6,182,212,0.15); position:absolute; top:16px; right:20px; line-height:1; pointer-events:none; }
+  .action-card h4 { font-size:1rem; font-weight:700; color:var(--prem-text); margin:0 0 8px; padding-right:50px; }
+  .action-card p { font-size:0.9rem; color:var(--prem-muted); line-height:1.6; margin:0 0 12px; }
+  .action-tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .action-tags span { font-size:0.75rem; font-weight:600; padding:3px 10px; border-radius:6px; background:rgba(6,182,212,0.1); color:var(--prem-accent); border:1px solid rgba(6,182,212,0.15); }
+
+  .action-summary { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; margin-top:32px; padding:24px; background:linear-gradient(135deg,rgba(59,130,246,0.08),rgba(6,182,212,0.05)); border:1px solid rgba(59,130,246,0.2); border-radius:12px; }
+  .action-summary-item { text-align:center; }
+  .action-summary-item strong { display:block; font-size:1.8rem; font-weight:800; color:var(--prem-accent); }
+  .action-summary-item span { font-size:0.8rem; color:var(--prem-dim); font-weight:500; }
+
+  /* ── Investment ── */
+  .invest-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:24px; }
+  .invest-card { background:var(--prem-card); border:1px solid var(--prem-stroke); border-radius:12px; padding:24px; text-align:center; transition:border-color 0.3s; }
+  .invest-card:hover { border-color:var(--prem-stroke-light); }
+  .invest-icon { font-size:2rem; display:block; margin-bottom:12px; }
+  .invest-card h4 { font-size:1rem; font-weight:700; color:var(--prem-text); margin:0 0 8px; }
+  .invest-card p { font-size:0.85rem; color:var(--prem-muted); line-height:1.5; margin:0; }
+
+  /* ── Solve Cards ── */
+  .solve-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; }
+  .solve-card { background:var(--prem-card); border:1px solid var(--prem-stroke); border-radius:12px; padding:24px; opacity:0.7; transition:opacity 0.3s,border-color 0.3s; }
+  .solve-card:hover { opacity:0.85; border-color:var(--prem-stroke-light); }
+  .solve-card--fixed { opacity:1; border-color:rgba(16,185,129,0.2); background:rgba(16,185,129,0.03); }
+  .solve-icon { font-size:1.5rem; display:block; margin-bottom:10px; }
+  .solve-card h4 { font-size:1rem; font-weight:700; color:var(--prem-text); margin:0 0 6px; }
+  .solve-card p { font-size:0.9rem; color:var(--prem-muted); line-height:1.5; margin:0; }
+
+  /* ── Scope ── */
+  .scope-label { font-size:1rem; font-weight:700; margin:0 0 16px; }
+  .scope-included { color:var(--prem-green); }
+  .scope-excluded { color:var(--prem-dim); margin-top:32px; }
+  .scope-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; }
+  .scope-item { display:flex; align-items:flex-start; gap:12px; padding:16px 20px; background:var(--prem-card); border:1px solid var(--prem-stroke); border-radius:8px; font-size:0.9rem; color:var(--prem-muted); line-height:1.5; }
+  .scope-check { color:var(--prem-green); font-size:1.1rem; flex-shrink:0; }
+  .scope-dim { color:var(--prem-dim); }
+  .scope-muted { opacity:0.6; }
+
+  /* ── Footer ── */
+  .premium-footer { border-top:1px solid var(--prem-stroke); background:var(--prem-bg); padding:40px 0; text-align:center; color:var(--prem-dim); font-size:0.85rem; }
+  .footer-conf { display:inline-block; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--prem-orange); background:rgba(245,158,11,0.1); padding:6px 16px; border-radius:20px; margin-bottom:16px; border:1px solid rgba(245,158,11,0.15); }
+  .footer-contact { margin-top:12px; font-size:0.8rem; }
+  .footer-contact a { color:#3b82f6; }
+
+  @media (max-width:768px) {
+    .compare-grid { grid-template-columns:1fr; }
+    .arch-row { flex-direction:column; align-items:flex-start; gap:12px; }
+    .premium-h1 { font-size:1.8rem; }
+  }
+
+  /* Override Header/Footer for dark theme */
+  :global(.header) { background:rgba(10,14,26,0.95) !important; border-bottom:1px solid var(--prem-stroke) !important; }
+  :global(.header--scrolled) { background:rgba(10,14,26,0.98) !important; border-bottom:1px solid var(--prem-stroke) !important; }
+  :global(.nav a) { color:var(--prem-text) !important; }
+  :global(.nav a:hover) { color:var(--prem-accent) !important; }
+  :global(.hamburger-line) { background:var(--prem-text) !important; }
+  :global(.footer) { background:var(--prem-bg) !important; border-top:1px solid var(--prem-stroke) !important; }
+  :global(.footer__copyright) { color:var(--prem-text) !important; }
+  :global(.footer__profession) { color:var(--prem-muted) !important; }
+  :global(.footer__nav a) { color:var(--prem-dim) !important; }
+  :global(.footer__nav a:hover) { color:var(--prem-accent) !important; }
+  :global(.mobile-menu-overlay) { background:rgba(0,0,0,0.7) !important; }
+  @media (max-width:640px) {
+    :global(.nav) { background:rgba(10,14,26,0.98) !important; border-left:1px solid var(--prem-stroke) !important; }
+    :global(.nav a) { border-bottom:1px solid var(--prem-stroke) !important; }
+  }
+</style>

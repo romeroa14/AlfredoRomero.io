@@ -1,0 +1,160 @@
+---
+import ScrollReveal from '@/components/animations/ScrollReveal.astro';
+
+const projects = [
+  {
+    title: 'Comercio Local — Landing SEO',
+    tags: 'Laravel · SEO · Core Web Vitals',
+    kpis: ['+42% leads', '98/100 CWV', '4 semanas'],
+    img: '/assets/img/proyecto-1.jpg',
+    alt: 'Proyecto Web - Comercio local',
+  },
+  {
+    title: 'Ecommerce — Pasarela de Pago',
+    tags: 'Laravel · Filament · PostgreSQL',
+    kpis: ['+3x ventas', 'Admin panel', '6 semanas'],
+    img: '/assets/img/proyecto-2.jpg',
+    alt: 'Ecommerce con pagos',
+  },
+  {
+    title: 'Soporte — Asistente con IA',
+    tags: 'Chatbot · RAG · Integraciones',
+    kpis: ['-35% tickets', '24/7', '3 semanas'],
+    img: '/assets/img/proyecto-3.webp',
+    alt: 'Asistente con IA',
+  },
+]
+---
+
+<section id="portafolio" class="section" aria-labelledby="portfolio-heading">
+  <div class="container">
+    <ScrollReveal>
+      <h2 id="portfolio-heading" class="text-reveal text-center">Proyectos Destacados</h2>
+    </ScrollReveal>
+
+    <ScrollReveal delay={100}>
+      <p class="section-lead text-center">
+        Casos reales con impacto en negocio. Reemplaza estos ejemplos con tus proyectos.
+      </p>
+    </ScrollReveal>
+
+    <div class="work-grid">
+      {projects.map((p, i) => (
+        <ScrollReveal delay={i * 150}>
+          <article class="work-card">
+            <a class="work-card-media" href="#" aria-label={p.title}>
+              <img src={p.img} alt={p.alt} loading="lazy" width="720" height="420" />
+            </a>
+            <div class="work-card-body">
+              <h3 class="work-card-title">{p.title}</h3>
+              <p class="work-card-tags">{p.tags}</p>
+              <ul class="work-card-kpis">
+                {p.kpis.map((kpi) => <li>{kpi}</li>)}
+              </ul>
+            </div>
+          </article>
+        </ScrollReveal>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-center {
+    text-align: center;
+  }
+
+  .text-reveal {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--color-muted);
+    max-width: 650px;
+    margin-inline: auto;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .work-card {
+    background: var(--color-card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--color-stroke);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .work-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .work-card-media {
+    display: block;
+    overflow: hidden;
+  }
+
+  .work-card-media img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .work-card:hover .work-card-media img {
+    transform: scale(1.05);
+  }
+
+  .work-card-body {
+    padding: 20px;
+  }
+
+  .work-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 4px;
+  }
+
+  .work-card-tags {
+    font-size: 0.8rem;
+    color: var(--color-brand);
+    font-weight: 500;
+    margin: 0 0 12px;
+  }
+
+  .work-card-kpis {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .work-card-kpis li {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ok);
+    background: rgba(22, 163, 74, 0.08);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 768px) {
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

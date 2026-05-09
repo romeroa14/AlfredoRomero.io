@@ -1,0 +1,142 @@
+---
+import ScrollReveal from '@/components/animations/ScrollReveal.astro';
+
+const faqs = [
+  {
+    question: '¿Cuánto tarda un proyecto típico?',
+    answer: 'Una landing tarda 2–4 semanas; una web corporativa 4–8; ecommerce 6–10, según alcance.',
+    open: true,
+  },
+  {
+    question: '¿Incluye SEO?',
+    answer: 'Sí. Implemento SEO técnico, performance y schema. Contenidos opcional.',
+    open: false,
+  },
+  {
+    question: '¿Qué formas de pago aceptas?',
+    answer: 'Transferencias, Zelle, pasarela o cripto; por hitos.',
+    open: false,
+  },
+  {
+    question: '¿Entregas el código fuente?',
+    answer: 'Sí, el código es del cliente; puedo configurar hosting y CI/CD.',
+    open: false,
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+}
+---
+
+<section id="faq" class="section" aria-labelledby="faq-heading">
+  <div class="container" style="max-width: 720px;">
+    <ScrollReveal>
+      <h2 id="faq-heading" class="text-reveal text-center">Preguntas Frecuentes</h2>
+    </ScrollReveal>
+
+    <div class="faq-list">
+      {faqs.map((faq, i) => (
+        <ScrollReveal delay={i * 100}>
+          <details class="faq-item" open={faq.open}>
+            <summary class="faq-question">{faq.question}</summary>
+            <div class="faq-answer">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        </ScrollReveal>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+<style>
+  .text-center {
+    text-align: center;
+  }
+
+  .text-reveal {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0 0 24px;
+    line-height: 1.25;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--color-card);
+    border: 1px solid var(--color-stroke);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .faq-item[open] {
+    border-color: rgba(43, 132, 255, 0.3);
+    box-shadow: 0 2px 16px rgba(43, 132, 255, 0.06);
+  }
+
+  .faq-question {
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-brand);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 12px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '−';
+  }
+
+  .faq-answer {
+    padding: 0 24px 20px;
+  }
+
+  .faq-answer p {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    margin: 0;
+    line-height: 1.7;
+  }
+</style>

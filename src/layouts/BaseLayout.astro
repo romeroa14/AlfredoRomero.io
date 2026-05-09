@@ -1,0 +1,78 @@
+---
+import '@/styles/global.css';
+
+import SEO from '@/components/SEO.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import WhatsAppFAB from '@/components/WhatsAppFAB.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  keywords?: string;
+  type?: string;
+  noIndex?: boolean;
+}
+
+const { noIndex = false, ...seoProps } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es-VE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SEO {...seoProps} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" href="/assets/img/ar2.png" type="image/svg+xml" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header />
+    <main><slot /></main>
+    <Footer />
+    <WhatsAppFAB />
+  </body>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Alfredo Romero',
+    jobTitle: 'Desarrollador Web y Consultor de IA',
+    url: 'https://alfredoromero.io/',
+    image: 'https://alfredoromero.io/assets/img/alfredo-hero.jpg',
+    telephone: '+58 424 2536795',
+    email: 'info@alfredoromero.io',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Caracas',
+      addressCountry: 'VE',
+    },
+    sameAs: [
+      'https://business.alfredoromero.io',
+      'https://www.linkedin.com/in/romeroa23',
+    ],
+  })}></script>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'Alfredo Romero - Desarrollo Web & IA',
+    url: 'https://alfredoromero.io/',
+    areaServed: 'VE',
+    priceRange: '$$$',
+    logo: 'https://alfredoromero.io/favicon.svg',
+    telephone: '+58 424 2536795',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Caracas',
+      addressCountry: 'VE',
+    },
+    sameAs: [
+      'https://business.alfredoromero.io',
+    ],
+  })}></script>
+</html>
